@@ -4,10 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**imdb** | [**RatingChild**](RatingChild.md) |  | [optional] 
-**tmdb** | [**RatingChild**](RatingChild.md) |  | [optional] 
-**metacritic** | [**RatingChild**](RatingChild.md) |  | [optional] 
-**rotten_tomatoes** | [**RatingChild**](RatingChild.md) |  | [optional] 
+**votes** | **int** |  | [optional] 
+**value** | **float** |  | [optional] 
 
 ## Example
 

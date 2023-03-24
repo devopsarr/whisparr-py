@@ -19,6 +19,7 @@ import json
 from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel
+from whisparr.models.alternate_title_resource import AlternateTitleResource
 from whisparr.models.custom_format_resource import CustomFormatResource
 from whisparr.models.download_protocol import DownloadProtocol
 from whisparr.models.language import Language
@@ -33,8 +34,6 @@ class ReleaseResource(BaseModel):
     id: Optional[int]
     guid: Optional[str]
     quality: Optional[QualityModel]
-    custom_formats: Optional[List]
-    custom_format_score: Optional[int]
     quality_weight: Optional[int]
     age: Optional[int]
     age_hours: Optional[float]
@@ -46,30 +45,46 @@ class ReleaseResource(BaseModel):
     sub_group: Optional[str]
     release_hash: Optional[str]
     title: Optional[str]
+    full_season: Optional[bool]
     scene_source: Optional[bool]
-    movie_titles: Optional[List]
+    season_number: Optional[int]
     languages: Optional[List]
+    language_weight: Optional[int]
+    air_date: Optional[str]
+    series_title: Optional[str]
+    episode_numbers: Optional[List]
+    absolute_episode_numbers: Optional[List]
+    mapped_season_number: Optional[int]
+    mapped_episode_numbers: Optional[List]
+    mapped_absolute_episode_numbers: Optional[List]
     approved: Optional[bool]
     temporarily_rejected: Optional[bool]
     rejected: Optional[bool]
-    tmdb_id: Optional[int]
-    imdb_id: Optional[int]
+    tvdb_id: Optional[int]
+    tv_rage_id: Optional[int]
     rejections: Optional[List]
     publish_date: Optional[datetime]
     comment_url: Optional[str]
     download_url: Optional[str]
     info_url: Optional[str]
+    episode_requested: Optional[bool]
     download_allowed: Optional[bool]
     release_weight: Optional[int]
-    indexer_flags: Optional[List]
-    edition: Optional[str]
+    custom_formats: Optional[List]
+    custom_format_score: Optional[int]
+    scene_mapping: Optional[AlternateTitleResource]
     magnet_url: Optional[str]
     info_hash: Optional[str]
     seeders: Optional[int]
     leechers: Optional[int]
     protocol: Optional[DownloadProtocol]
-    movie_id: Optional[int]
-    __properties = ["id", "guid", "quality", "customFormats", "customFormatScore", "qualityWeight", "age", "ageHours", "ageMinutes", "size", "indexerId", "indexer", "releaseGroup", "subGroup", "releaseHash", "title", "sceneSource", "movieTitles", "languages", "approved", "temporarilyRejected", "rejected", "tmdbId", "imdbId", "rejections", "publishDate", "commentUrl", "downloadUrl", "infoUrl", "downloadAllowed", "releaseWeight", "indexerFlags", "edition", "magnetUrl", "infoHash", "seeders", "leechers", "protocol", "movieId"]
+    is_daily: Optional[bool]
+    is_absolute_numbering: Optional[bool]
+    is_possible_special_episode: Optional[bool]
+    special: Optional[bool]
+    series_id: Optional[int]
+    episode_id: Optional[int]
+    __properties = ["id", "guid", "quality", "qualityWeight", "age", "ageHours", "ageMinutes", "size", "indexerId", "indexer", "releaseGroup", "subGroup", "releaseHash", "title", "fullSeason", "sceneSource", "seasonNumber", "languages", "languageWeight", "airDate", "seriesTitle", "episodeNumbers", "absoluteEpisodeNumbers", "mappedSeasonNumber", "mappedEpisodeNumbers", "mappedAbsoluteEpisodeNumbers", "approved", "temporarilyRejected", "rejected", "tvdbId", "tvRageId", "rejections", "publishDate", "commentUrl", "downloadUrl", "infoUrl", "episodeRequested", "downloadAllowed", "releaseWeight", "customFormats", "customFormatScore", "sceneMapping", "magnetUrl", "infoHash", "seeders", "leechers", "protocol", "isDaily", "isAbsoluteNumbering", "isPossibleSpecialEpisode", "special", "seriesId", "episodeId"]
 
     class Config:
         allow_population_by_field_name = True
@@ -101,13 +116,6 @@ class ReleaseResource(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of quality
         if self.quality:
             _dict['quality'] = self.quality.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in custom_formats (list)
-        _items = []
-        if self.custom_formats:
-            for _item in self.custom_formats:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['customFormats'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in languages (list)
         _items = []
         if self.languages:
@@ -115,13 +123,19 @@ class ReleaseResource(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['languages'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in custom_formats (list)
+        _items = []
+        if self.custom_formats:
+            for _item in self.custom_formats:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['customFormats'] = _items
+        # override the default output from pydantic by calling `to_dict()` of scene_mapping
+        if self.scene_mapping:
+            _dict['sceneMapping'] = self.scene_mapping.to_dict()
         # set to None if guid (nullable) is None
         if self.guid is None:
             _dict['guid'] = None
-
-        # set to None if custom_formats (nullable) is None
-        if self.custom_formats is None:
-            _dict['customFormats'] = None
 
         # set to None if indexer (nullable) is None
         if self.indexer is None:
@@ -143,13 +157,37 @@ class ReleaseResource(BaseModel):
         if self.title is None:
             _dict['title'] = None
 
-        # set to None if movie_titles (nullable) is None
-        if self.movie_titles is None:
-            _dict['movieTitles'] = None
-
         # set to None if languages (nullable) is None
         if self.languages is None:
             _dict['languages'] = None
+
+        # set to None if air_date (nullable) is None
+        if self.air_date is None:
+            _dict['airDate'] = None
+
+        # set to None if series_title (nullable) is None
+        if self.series_title is None:
+            _dict['seriesTitle'] = None
+
+        # set to None if episode_numbers (nullable) is None
+        if self.episode_numbers is None:
+            _dict['episodeNumbers'] = None
+
+        # set to None if absolute_episode_numbers (nullable) is None
+        if self.absolute_episode_numbers is None:
+            _dict['absoluteEpisodeNumbers'] = None
+
+        # set to None if mapped_season_number (nullable) is None
+        if self.mapped_season_number is None:
+            _dict['mappedSeasonNumber'] = None
+
+        # set to None if mapped_episode_numbers (nullable) is None
+        if self.mapped_episode_numbers is None:
+            _dict['mappedEpisodeNumbers'] = None
+
+        # set to None if mapped_absolute_episode_numbers (nullable) is None
+        if self.mapped_absolute_episode_numbers is None:
+            _dict['mappedAbsoluteEpisodeNumbers'] = None
 
         # set to None if rejections (nullable) is None
         if self.rejections is None:
@@ -167,13 +205,9 @@ class ReleaseResource(BaseModel):
         if self.info_url is None:
             _dict['infoUrl'] = None
 
-        # set to None if indexer_flags (nullable) is None
-        if self.indexer_flags is None:
-            _dict['indexerFlags'] = None
-
-        # set to None if edition (nullable) is None
-        if self.edition is None:
-            _dict['edition'] = None
+        # set to None if custom_formats (nullable) is None
+        if self.custom_formats is None:
+            _dict['customFormats'] = None
 
         # set to None if magnet_url (nullable) is None
         if self.magnet_url is None:
@@ -191,9 +225,13 @@ class ReleaseResource(BaseModel):
         if self.leechers is None:
             _dict['leechers'] = None
 
-        # set to None if movie_id (nullable) is None
-        if self.movie_id is None:
-            _dict['movieId'] = None
+        # set to None if series_id (nullable) is None
+        if self.series_id is None:
+            _dict['seriesId'] = None
+
+        # set to None if episode_id (nullable) is None
+        if self.episode_id is None:
+            _dict['episodeId'] = None
 
         return _dict
 
@@ -210,8 +248,6 @@ class ReleaseResource(BaseModel):
             "id": obj.get("id"),
             "guid": obj.get("guid"),
             "quality": QualityModel.from_dict(obj.get("quality")) if obj.get("quality") is not None else None,
-            "custom_formats": [CustomFormatResource.from_dict(_item) for _item in obj.get("customFormats")] if obj.get("customFormats") is not None else None,
-            "custom_format_score": obj.get("customFormatScore"),
             "quality_weight": obj.get("qualityWeight"),
             "age": obj.get("age"),
             "age_hours": obj.get("ageHours"),
@@ -223,29 +259,45 @@ class ReleaseResource(BaseModel):
             "sub_group": obj.get("subGroup"),
             "release_hash": obj.get("releaseHash"),
             "title": obj.get("title"),
+            "full_season": obj.get("fullSeason"),
             "scene_source": obj.get("sceneSource"),
-            "movie_titles": obj.get("movieTitles"),
+            "season_number": obj.get("seasonNumber"),
             "languages": [Language.from_dict(_item) for _item in obj.get("languages")] if obj.get("languages") is not None else None,
+            "language_weight": obj.get("languageWeight"),
+            "air_date": obj.get("airDate"),
+            "series_title": obj.get("seriesTitle"),
+            "episode_numbers": obj.get("episodeNumbers"),
+            "absolute_episode_numbers": obj.get("absoluteEpisodeNumbers"),
+            "mapped_season_number": obj.get("mappedSeasonNumber"),
+            "mapped_episode_numbers": obj.get("mappedEpisodeNumbers"),
+            "mapped_absolute_episode_numbers": obj.get("mappedAbsoluteEpisodeNumbers"),
             "approved": obj.get("approved"),
             "temporarily_rejected": obj.get("temporarilyRejected"),
             "rejected": obj.get("rejected"),
-            "tmdb_id": obj.get("tmdbId"),
-            "imdb_id": obj.get("imdbId"),
+            "tvdb_id": obj.get("tvdbId"),
+            "tv_rage_id": obj.get("tvRageId"),
             "rejections": obj.get("rejections"),
             "publish_date": obj.get("publishDate"),
             "comment_url": obj.get("commentUrl"),
             "download_url": obj.get("downloadUrl"),
             "info_url": obj.get("infoUrl"),
+            "episode_requested": obj.get("episodeRequested"),
             "download_allowed": obj.get("downloadAllowed"),
             "release_weight": obj.get("releaseWeight"),
-            "indexer_flags": obj.get("indexerFlags"),
-            "edition": obj.get("edition"),
+            "custom_formats": [CustomFormatResource.from_dict(_item) for _item in obj.get("customFormats")] if obj.get("customFormats") is not None else None,
+            "custom_format_score": obj.get("customFormatScore"),
+            "scene_mapping": AlternateTitleResource.from_dict(obj.get("sceneMapping")) if obj.get("sceneMapping") is not None else None,
             "magnet_url": obj.get("magnetUrl"),
             "info_hash": obj.get("infoHash"),
             "seeders": obj.get("seeders"),
             "leechers": obj.get("leechers"),
             "protocol": obj.get("protocol"),
-            "movie_id": obj.get("movieId")
+            "is_daily": obj.get("isDaily"),
+            "is_absolute_numbering": obj.get("isAbsoluteNumbering"),
+            "is_possible_special_episode": obj.get("isPossibleSpecialEpisode"),
+            "special": obj.get("special"),
+            "series_id": obj.get("seriesId"),
+            "episode_id": obj.get("episodeId")
         })
         return _obj
 

@@ -172,7 +172,7 @@ class QueueApi(object):
         _body_params = None
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
@@ -328,7 +328,7 @@ class QueueApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
@@ -350,19 +350,21 @@ class QueueApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_queue(self, include_unknown_movie_items : Optional[StrictBool] = None, include_movie : Optional[StrictBool] = None, **kwargs) -> QueueResourcePagingResource:  # noqa: E501
+    def get_queue(self, include_unknown_series_items : Optional[StrictBool] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs) -> QueueResourcePagingResource:  # noqa: E501
         """get_queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_queue(include_unknown_movie_items, include_movie, async_req=True)
+        >>> thread = api.get_queue(include_unknown_series_items, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param include_unknown_movie_items:
-        :type include_unknown_movie_items: bool
-        :param include_movie:
-        :type include_movie: bool
+        :param include_unknown_series_items:
+        :type include_unknown_series_items: bool
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -379,22 +381,24 @@ class QueueApi(object):
         :rtype: QueueResourcePagingResource
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_queue_with_http_info(include_unknown_movie_items, include_movie, **kwargs)  # noqa: E501
+        return self.get_queue_with_http_info(include_unknown_series_items, include_series, include_episode, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_queue_with_http_info(self, include_unknown_movie_items : Optional[StrictBool] = None, include_movie : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+    def get_queue_with_http_info(self, include_unknown_series_items : Optional[StrictBool] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs):  # noqa: E501
         """get_queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_queue_with_http_info(include_unknown_movie_items, include_movie, async_req=True)
+        >>> thread = api.get_queue_with_http_info(include_unknown_series_items, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param include_unknown_movie_items:
-        :type include_unknown_movie_items: bool
-        :param include_movie:
-        :type include_movie: bool
+        :param include_unknown_series_items:
+        :type include_unknown_series_items: bool
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -422,8 +426,9 @@ class QueueApi(object):
         _params = locals()
 
         _all_params = [
-            'include_unknown_movie_items',
-            'include_movie'
+            'include_unknown_series_items',
+            'include_series',
+            'include_episode'
         ]
         _all_params.extend(
             [
@@ -454,10 +459,12 @@ class QueueApi(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('include_unknown_movie_items') is not None:  # noqa: E501
-            _query_params.append(('includeUnknownMovieItems', _params['include_unknown_movie_items']))
-        if _params.get('include_movie') is not None:  # noqa: E501
-            _query_params.append(('includeMovie', _params['include_movie']))
+        if _params.get('include_unknown_series_items') is not None:  # noqa: E501
+            _query_params.append(('includeUnknownSeriesItems', _params['include_unknown_series_items']))
+        if _params.get('include_series') is not None:  # noqa: E501
+            _query_params.append(('includeSeries', _params['include_series']))
+        if _params.get('include_episode') is not None:  # noqa: E501
+            _query_params.append(('includeEpisode', _params['include_episode']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -471,10 +478,10 @@ class QueueApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "QueueResourcePagingResource",
@@ -612,10 +619,10 @@ class QueueApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "QueueResource",

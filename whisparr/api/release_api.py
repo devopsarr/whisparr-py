@@ -158,12 +158,12 @@ class ReleaseApi(object):
         # set the HTTP header `Content-Type`
         _content_types_list = _params.get('_content_type',
             self.api_client.select_header_content_type(
-                ['application/json', 'text/json', 'application/*+json']))
+                ['application/json']))
         if _content_types_list:
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
@@ -299,10 +299,10 @@ class ReleaseApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "ReleaseResource",
@@ -326,17 +326,21 @@ class ReleaseApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_release(self, movie_id : Optional[StrictInt] = None, **kwargs) -> List[ReleaseResource]:  # noqa: E501
+    def list_release(self, series_id : Optional[StrictInt] = None, episode_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, **kwargs) -> List[ReleaseResource]:  # noqa: E501
         """list_release  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_release(movie_id, async_req=True)
+        >>> thread = api.list_release(series_id, episode_id, season_number, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param episode_id:
+        :type episode_id: int
+        :param season_number:
+        :type season_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -353,20 +357,24 @@ class ReleaseApi(object):
         :rtype: List[ReleaseResource]
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_release_with_http_info(movie_id, **kwargs)  # noqa: E501
+        return self.list_release_with_http_info(series_id, episode_id, season_number, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_release_with_http_info(self, movie_id : Optional[StrictInt] = None, **kwargs):  # noqa: E501
+    def list_release_with_http_info(self, series_id : Optional[StrictInt] = None, episode_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, **kwargs):  # noqa: E501
         """list_release  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_release_with_http_info(movie_id, async_req=True)
+        >>> thread = api.list_release_with_http_info(series_id, episode_id, season_number, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param episode_id:
+        :type episode_id: int
+        :param season_number:
+        :type season_number: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -394,7 +402,9 @@ class ReleaseApi(object):
         _params = locals()
 
         _all_params = [
-            'movie_id'
+            'series_id',
+            'episode_id',
+            'season_number'
         ]
         _all_params.extend(
             [
@@ -425,8 +435,12 @@ class ReleaseApi(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('movie_id') is not None:  # noqa: E501
-            _query_params.append(('movieId', _params['movie_id']))
+        if _params.get('series_id') is not None:  # noqa: E501
+            _query_params.append(('seriesId', _params['series_id']))
+        if _params.get('episode_id') is not None:  # noqa: E501
+            _query_params.append(('episodeId', _params['episode_id']))
+        if _params.get('season_number') is not None:  # noqa: E501
+            _query_params.append(('seasonNumber', _params['season_number']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -440,10 +454,10 @@ class ReleaseApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "List[ReleaseResource]",

@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **title** | **str** |  | [optional] 
-**parsed_movie_info** | [**ParsedMovieInfo**](ParsedMovieInfo.md) |  | [optional] 
-**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
+**parsed_episode_info** | [**ParsedEpisodeInfo**](ParsedEpisodeInfo.md) |  | [optional] 
+**series** | [**SeriesResource**](SeriesResource.md) |  | [optional] 
+**episodes** | [**List[EpisodeResource]**](EpisodeResource.md) |  | [optional] 
 
 ## Example
 

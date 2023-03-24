@@ -42,13 +42,13 @@ class CalendarFeedApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_feed_v3_calendar_whisparr_ics(self, past_days : Optional[StrictInt] = None, future_days : Optional[StrictInt] = None, tag_list : Optional[StrictStr] = None, unmonitored : Optional[StrictBool] = None, **kwargs) -> None:  # noqa: E501
+    def get_feed_v3_calendar_whisparr_ics(self, past_days : Optional[StrictInt] = None, future_days : Optional[StrictInt] = None, tag_list : Optional[StrictStr] = None, unmonitored : Optional[StrictBool] = None, premieres_only : Optional[StrictBool] = None, as_all_day : Optional[StrictBool] = None, **kwargs) -> None:  # noqa: E501
         """get_feed_v3_calendar_whisparr_ics  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_feed_v3_calendar_whisparr_ics(past_days, future_days, tag_list, unmonitored, async_req=True)
+        >>> thread = api.get_feed_v3_calendar_whisparr_ics(past_days, future_days, tag_list, unmonitored, premieres_only, as_all_day, async_req=True)
         >>> result = thread.get()
 
         :param past_days:
@@ -59,6 +59,10 @@ class CalendarFeedApi(object):
         :type tag_list: str
         :param unmonitored:
         :type unmonitored: bool
+        :param premieres_only:
+        :type premieres_only: bool
+        :param as_all_day:
+        :type as_all_day: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -75,16 +79,16 @@ class CalendarFeedApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_feed_v3_calendar_whisparr_ics_with_http_info(past_days, future_days, tag_list, unmonitored, **kwargs)  # noqa: E501
+        return self.get_feed_v3_calendar_whisparr_ics_with_http_info(past_days, future_days, tag_list, unmonitored, premieres_only, as_all_day, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_feed_v3_calendar_whisparr_ics_with_http_info(self, past_days : Optional[StrictInt] = None, future_days : Optional[StrictInt] = None, tag_list : Optional[StrictStr] = None, unmonitored : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+    def get_feed_v3_calendar_whisparr_ics_with_http_info(self, past_days : Optional[StrictInt] = None, future_days : Optional[StrictInt] = None, tag_list : Optional[StrictStr] = None, unmonitored : Optional[StrictBool] = None, premieres_only : Optional[StrictBool] = None, as_all_day : Optional[StrictBool] = None, **kwargs):  # noqa: E501
         """get_feed_v3_calendar_whisparr_ics  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_feed_v3_calendar_whisparr_ics_with_http_info(past_days, future_days, tag_list, unmonitored, async_req=True)
+        >>> thread = api.get_feed_v3_calendar_whisparr_ics_with_http_info(past_days, future_days, tag_list, unmonitored, premieres_only, as_all_day, async_req=True)
         >>> result = thread.get()
 
         :param past_days:
@@ -95,6 +99,10 @@ class CalendarFeedApi(object):
         :type tag_list: str
         :param unmonitored:
         :type unmonitored: bool
+        :param premieres_only:
+        :type premieres_only: bool
+        :param as_all_day:
+        :type as_all_day: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -125,7 +133,9 @@ class CalendarFeedApi(object):
             'past_days',
             'future_days',
             'tag_list',
-            'unmonitored'
+            'unmonitored',
+            'premieres_only',
+            'as_all_day'
         ]
         _all_params.extend(
             [
@@ -164,6 +174,10 @@ class CalendarFeedApi(object):
             _query_params.append(('tagList', _params['tag_list']))
         if _params.get('unmonitored') is not None:  # noqa: E501
             _query_params.append(('unmonitored', _params['unmonitored']))
+        if _params.get('premieres_only') is not None:  # noqa: E501
+            _query_params.append(('premieresOnly', _params['premieres_only']))
+        if _params.get('as_all_day') is not None:  # noqa: E501
+            _query_params.append(('asAllDay', _params['as_all_day']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -176,7 +190,7 @@ class CalendarFeedApi(object):
         _body_params = None
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 

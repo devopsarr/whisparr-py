@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **min_format_score** | **int** |  | [optional] 
 **cutoff_format_score** | **int** |  | [optional] 
 **format_items** | [**List[ProfileFormatItemResource]**](ProfileFormatItemResource.md) |  | [optional] 
-**language** | [**Language**](Language.md) |  | [optional] 
 
 ## Example
 

@@ -32,14 +32,13 @@ class Command(BaseModel):
     completion_message: Optional[str]
     requires_disk_access: Optional[bool]
     is_exclusive: Optional[bool]
-    is_type_exclusive: Optional[bool]
+    is_long_running: Optional[bool]
     name: Optional[str]
     last_execution_time: Optional[datetime]
-    last_start_time: Optional[datetime]
     trigger: Optional[CommandTrigger]
     suppress_messages: Optional[bool]
     client_user_agent: Optional[str]
-    __properties = ["sendUpdatesToClient", "updateScheduledTask", "completionMessage", "requiresDiskAccess", "isExclusive", "isTypeExclusive", "name", "lastExecutionTime", "lastStartTime", "trigger", "suppressMessages", "clientUserAgent"]
+    __properties = ["sendUpdatesToClient", "updateScheduledTask", "completionMessage", "requiresDiskAccess", "isExclusive", "isLongRunning", "name", "lastExecutionTime", "trigger", "suppressMessages", "clientUserAgent"]
 
     class Config:
         allow_population_by_field_name = True
@@ -70,7 +69,7 @@ class Command(BaseModel):
                             "completion_message",
                             "requires_disk_access",
                             "is_exclusive",
-                            "is_type_exclusive",
+                            "is_long_running",
                             "name",
                           },
                           exclude_none=True)
@@ -85,10 +84,6 @@ class Command(BaseModel):
         # set to None if last_execution_time (nullable) is None
         if self.last_execution_time is None:
             _dict['lastExecutionTime'] = None
-
-        # set to None if last_start_time (nullable) is None
-        if self.last_start_time is None:
-            _dict['lastStartTime'] = None
 
         # set to None if client_user_agent (nullable) is None
         if self.client_user_agent is None:
@@ -111,10 +106,9 @@ class Command(BaseModel):
             "completion_message": obj.get("completionMessage"),
             "requires_disk_access": obj.get("requiresDiskAccess"),
             "is_exclusive": obj.get("isExclusive"),
-            "is_type_exclusive": obj.get("isTypeExclusive"),
+            "is_long_running": obj.get("isLongRunning"),
             "name": obj.get("name"),
             "last_execution_time": obj.get("lastExecutionTime"),
-            "last_start_time": obj.get("lastStartTime"),
             "trigger": obj.get("trigger"),
             "suppress_messages": obj.get("suppressMessages"),
             "client_user_agent": obj.get("clientUserAgent")

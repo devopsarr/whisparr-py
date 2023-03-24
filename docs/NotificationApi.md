@@ -22,51 +22,6 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
-
-    try:
-        api_response = api_instance.create_notification(notification_resource=notification_resource)
-        print("The response of NotificationApi->create_notification:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationApi->create_notification: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -86,17 +41,62 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
+
+    try:
+        api_response = api_instance.create_notification(notification_resource=notification_resource)
+        print("The response of NotificationApi->create_notification:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationApi->create_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -124,11 +124,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
@@ -144,50 +144,6 @@ Name | Type | Description  | Notes
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    name = 'name_example' # str | 
-    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
-
-    try:
-        api_instance.create_notification_action_by_name(name, notification_resource=notification_resource)
-    except Exception as e:
-        print("Exception when calling NotificationApi->create_notification_action_by_name: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -208,17 +164,61 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    name = 'name_example' # str | 
+    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
+
+    try:
+        api_instance.create_notification_action_by_name(name, notification_resource=notification_resource)
+    except Exception as e:
+        print("Exception when calling NotificationApi->create_notification_action_by_name: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -246,11 +246,11 @@ void (empty response body)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -266,49 +266,6 @@ void (empty response body)
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    id = 56 # int | 
-
-    try:
-        api_instance.delete_notification(id)
-    except Exception as e:
-        print("Exception when calling NotificationApi->delete_notification: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -329,17 +286,60 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    id = 56 # int | 
+
+    try:
+        api_instance.delete_notification(id)
+    except Exception as e:
+        print("Exception when calling NotificationApi->delete_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -365,7 +365,7 @@ void (empty response body)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
@@ -386,51 +386,6 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    id = 56 # int | 
-
-    try:
-        api_response = api_instance.get_notification_by_id(id)
-        print("The response of NotificationApi->get_notification_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationApi->get_notification_by_id: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -450,17 +405,62 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    id = 56 # int | 
+
+    try:
+        api_response = api_instance.get_notification_by_id(id)
+        print("The response of NotificationApi->get_notification_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationApi->get_notification_by_id: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -488,12 +488,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -509,50 +509,6 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-
-    try:
-        api_response = api_instance.list_notification()
-        print("The response of NotificationApi->list_notification:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationApi->list_notification: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -572,17 +528,61 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+
+    try:
+        api_response = api_instance.list_notification()
+        print("The response of NotificationApi->list_notification:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationApi->list_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -606,12 +606,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -627,50 +627,6 @@ This endpoint does not need any parameter.
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-
-    try:
-        api_response = api_instance.list_notification_schema()
-        print("The response of NotificationApi->list_notification_schema:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationApi->list_notification_schema: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -690,17 +646,61 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+
+    try:
+        api_response = api_instance.list_notification_schema()
+        print("The response of NotificationApi->list_notification_schema:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationApi->list_notification_schema: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -724,12 +724,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -744,49 +744,6 @@ This endpoint does not need any parameter.
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
-
-    try:
-        api_instance.test_notification(notification_resource=notification_resource)
-    except Exception as e:
-        print("Exception when calling NotificationApi->test_notification: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -807,17 +764,60 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
+
+    try:
+        api_instance.test_notification(notification_resource=notification_resource)
+    except Exception as e:
+        print("Exception when calling NotificationApi->test_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -843,11 +843,11 @@ void (empty response body)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -863,48 +863,6 @@ void (empty response body)
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-
-    try:
-        api_instance.testall_notification()
-    except Exception as e:
-        print("Exception when calling NotificationApi->testall_notification: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -925,17 +883,59 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+
+    try:
+        api_instance.testall_notification()
+    except Exception as e:
+        print("Exception when calling NotificationApi->testall_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -957,7 +957,7 @@ void (empty response body)
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
@@ -978,52 +978,6 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.NotificationApi(api_client)
-    id = 'id_example' # str | 
-    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
-
-    try:
-        api_response = api_instance.update_notification(id, notification_resource=notification_resource)
-        print("The response of NotificationApi->update_notification:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationApi->update_notification: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -1043,17 +997,63 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.NotificationApi(api_client)
+    id = 'id_example' # str | 
+    notification_resource = whisparr.NotificationResource() # NotificationResource |  (optional)
+
+    try:
+        api_response = api_instance.update_notification(id, notification_resource=notification_resource)
+        print("The response of NotificationApi->update_notification:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationApi->update_notification: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -1083,11 +1083,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details

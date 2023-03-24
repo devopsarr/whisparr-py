@@ -40,17 +40,17 @@ class MediaCoverApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_media_covermovie_id_by_filename(self, movie_id : StrictInt, filename : constr(strict=True), **kwargs) -> None:  # noqa: E501
-        """get_media_covermovie_id_by_filename  # noqa: E501
+    def get_media_coverseries_id_by_filename(self, series_id : StrictInt, filename : constr(strict=True), **kwargs) -> None:  # noqa: E501
+        """get_media_coverseries_id_by_filename  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_media_covermovie_id_by_filename(movie_id, filename, async_req=True)
+        >>> thread = api.get_media_coverseries_id_by_filename(series_id, filename, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id: (required)
-        :type movie_id: int
+        :param series_id: (required)
+        :type series_id: int
         :param filename: (required)
         :type filename: str
         :param async_req: Whether to execute the request asynchronously.
@@ -69,20 +69,20 @@ class MediaCoverApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_media_covermovie_id_by_filename_with_http_info(movie_id, filename, **kwargs)  # noqa: E501
+        return self.get_media_coverseries_id_by_filename_with_http_info(series_id, filename, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_media_covermovie_id_by_filename_with_http_info(self, movie_id : StrictInt, filename : constr(strict=True), **kwargs):  # noqa: E501
-        """get_media_covermovie_id_by_filename  # noqa: E501
+    def get_media_coverseries_id_by_filename_with_http_info(self, series_id : StrictInt, filename : constr(strict=True), **kwargs):  # noqa: E501
+        """get_media_coverseries_id_by_filename  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_media_covermovie_id_by_filename_with_http_info(movie_id, filename, async_req=True)
+        >>> thread = api.get_media_coverseries_id_by_filename_with_http_info(series_id, filename, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id: (required)
-        :type movie_id: int
+        :param series_id: (required)
+        :type series_id: int
         :param filename: (required)
         :type filename: str
         :param async_req: Whether to execute the request asynchronously.
@@ -112,7 +112,7 @@ class MediaCoverApi(object):
         _params = locals()
 
         _all_params = [
-            'movie_id',
+            'series_id',
             'filename'
         ]
         _all_params.extend(
@@ -132,7 +132,7 @@ class MediaCoverApi(object):
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_media_covermovie_id_by_filename" % _key
+                    " to method get_media_coverseries_id_by_filename" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -141,8 +141,8 @@ class MediaCoverApi(object):
 
         # process the path parameters
         _path_params = {}
-        if _params['movie_id']:
-            _path_params['movieId'] = _params['movie_id']
+        if _params['series_id']:
+            _path_params['seriesId'] = _params['series_id']
         if _params['filename']:
             _path_params['filename'] = _params['filename']
 
@@ -160,12 +160,12 @@ class MediaCoverApi(object):
         _body_params = None
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v3/mediacover/{movieId}/{filename}', 'GET',
+            '/api/v3/mediacover/{seriesId}/{filename}', 'GET',
             _path_params,
             _query_params,
             _header_params,
