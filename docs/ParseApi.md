@@ -1,6 +1,6 @@
 # whisparr.ParseApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_parse**
-> ParseResource get_parse(title=title, path=path)
+> ParseResource get_parse(title=title)
 
 
 
@@ -22,10 +22,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -50,10 +50,9 @@ with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.ParseApi(api_client)
     title = 'title_example' # str |  (optional)
-    path = 'path_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_parse(title=title, path=path)
+        api_response = api_instance.get_parse(title=title)
         print("The response of ParseApi->get_parse:\n")
         pprint(api_response)
     except Exception as e:
@@ -68,10 +67,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -96,10 +95,9 @@ with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.ParseApi(api_client)
     title = 'title_example' # str |  (optional)
-    path = 'path_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_parse(title=title, path=path)
+        api_response = api_instance.get_parse(title=title)
         print("The response of ParseApi->get_parse:\n")
         pprint(api_response)
     except Exception as e:
@@ -111,7 +109,6 @@ with whisparr.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **title** | **str**|  | [optional] 
- **path** | **str**|  | [optional] 
 
 ### Return type
 
@@ -124,7 +121,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -5,19 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**episode_id** | **int** |  | [optional] 
-**series_id** | **int** |  | [optional] 
+**movie_id** | **int** |  | [optional] 
 **source_title** | **str** |  | [optional] 
 **languages** | [**List[Language]**](Language.md) |  | [optional] 
 **quality** | [**QualityModel**](QualityModel.md) |  | [optional] 
 **custom_formats** | [**List[CustomFormatResource]**](CustomFormatResource.md) |  | [optional] 
+**custom_format_score** | **int** |  | [optional] 
 **quality_cutoff_not_met** | **bool** |  | [optional] 
 **var_date** | **datetime** |  | [optional] 
 **download_id** | **str** |  | [optional] 
-**event_type** | [**EpisodeHistoryEventType**](EpisodeHistoryEventType.md) |  | [optional] 
+**event_type** | [**MovieHistoryEventType**](MovieHistoryEventType.md) |  | [optional] 
 **data** | **Dict[str, str]** |  | [optional] 
-**episode** | [**EpisodeResource**](EpisodeResource.md) |  | [optional] 
-**series** | [**SeriesResource**](SeriesResource.md) |  | [optional] 
+**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
 
 ## Example
 

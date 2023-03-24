@@ -1,14 +1,14 @@
 # whisparr.CalendarFeedApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_feed_v3_calendar_whisparr_ics**](CalendarFeedApi.md#get_feed_v3_calendar_whisparr_ics) | **GET** /feed/v3/calendar/whisparr.ics | 
+[**get_feed_v3_calendar_radarr_ics**](CalendarFeedApi.md#get_feed_v3_calendar_radarr_ics) | **GET** /feed/v3/calendar/radarr.ics | 
 
 
-# **get_feed_v3_calendar_whisparr_ics**
-> get_feed_v3_calendar_whisparr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored, premieres_only=premieres_only, as_all_day=as_all_day)
+# **get_feed_v3_calendar_radarr_ics**
+> get_feed_v3_calendar_radarr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored)
 
 
 
@@ -22,10 +22,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -53,13 +53,11 @@ with whisparr.ApiClient(configuration) as api_client:
     future_days = 28 # int |  (optional) (default to 28)
     tag_list = '' # str |  (optional) (default to '')
     unmonitored = False # bool |  (optional) (default to False)
-    premieres_only = False # bool |  (optional) (default to False)
-    as_all_day = False # bool |  (optional) (default to False)
 
     try:
-        api_instance.get_feed_v3_calendar_whisparr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored, premieres_only=premieres_only, as_all_day=as_all_day)
+        api_instance.get_feed_v3_calendar_radarr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored)
     except Exception as e:
-        print("Exception when calling CalendarFeedApi->get_feed_v3_calendar_whisparr_ics: %s\n" % e)
+        print("Exception when calling CalendarFeedApi->get_feed_v3_calendar_radarr_ics: %s\n" % e)
 ```
 
 * Api Key Authentication (X-Api-Key):
@@ -70,10 +68,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -101,13 +99,11 @@ with whisparr.ApiClient(configuration) as api_client:
     future_days = 28 # int |  (optional) (default to 28)
     tag_list = '' # str |  (optional) (default to '')
     unmonitored = False # bool |  (optional) (default to False)
-    premieres_only = False # bool |  (optional) (default to False)
-    as_all_day = False # bool |  (optional) (default to False)
 
     try:
-        api_instance.get_feed_v3_calendar_whisparr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored, premieres_only=premieres_only, as_all_day=as_all_day)
+        api_instance.get_feed_v3_calendar_radarr_ics(past_days=past_days, future_days=future_days, tag_list=tag_list, unmonitored=unmonitored)
     except Exception as e:
-        print("Exception when calling CalendarFeedApi->get_feed_v3_calendar_whisparr_ics: %s\n" % e)
+        print("Exception when calling CalendarFeedApi->get_feed_v3_calendar_radarr_ics: %s\n" % e)
 ```
 
 ### Parameters
@@ -118,8 +114,6 @@ Name | Type | Description  | Notes
  **future_days** | **int**|  | [optional] [default to 28]
  **tag_list** | **str**|  | [optional] [default to &#39;&#39;]
  **unmonitored** | **bool**|  | [optional] [default to False]
- **premieres_only** | **bool**|  | [optional] [default to False]
- **as_all_day** | **bool**|  | [optional] [default to False]
 
 ### Return type
 

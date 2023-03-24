@@ -1,6 +1,6 @@
 # whisparr.NamingConfigApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,10 +25,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -69,10 +69,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -143,10 +143,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -188,10 +188,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_naming_config_examples**
-> get_naming_config_examples(rename_episodes=rename_episodes, replace_illegal_characters=replace_illegal_characters, multi_episode_style=multi_episode_style, standard_episode_format=standard_episode_format, daily_episode_format=daily_episode_format, anime_episode_format=anime_episode_format, series_folder_format=series_folder_format, season_folder_format=season_folder_format, specials_folder_format=specials_folder_format, include_series_title=include_series_title, include_episode_title=include_episode_title, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
+> get_naming_config_examples(rename_movies=rename_movies, replace_illegal_characters=replace_illegal_characters, colon_replacement_format=colon_replacement_format, standard_movie_format=standard_movie_format, movie_folder_format=movie_folder_format, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
 
 
 
@@ -266,10 +266,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -293,17 +293,11 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.NamingConfigApi(api_client)
-    rename_episodes = True # bool |  (optional)
+    rename_movies = True # bool |  (optional)
     replace_illegal_characters = True # bool |  (optional)
-    multi_episode_style = 56 # int |  (optional)
-    standard_episode_format = 'standard_episode_format_example' # str |  (optional)
-    daily_episode_format = 'daily_episode_format_example' # str |  (optional)
-    anime_episode_format = 'anime_episode_format_example' # str |  (optional)
-    series_folder_format = 'series_folder_format_example' # str |  (optional)
-    season_folder_format = 'season_folder_format_example' # str |  (optional)
-    specials_folder_format = 'specials_folder_format_example' # str |  (optional)
-    include_series_title = True # bool |  (optional)
-    include_episode_title = True # bool |  (optional)
+    colon_replacement_format = whisparr.ColonReplacementFormat() # ColonReplacementFormat |  (optional)
+    standard_movie_format = 'standard_movie_format_example' # str |  (optional)
+    movie_folder_format = 'movie_folder_format_example' # str |  (optional)
     include_quality = True # bool |  (optional)
     replace_spaces = True # bool |  (optional)
     separator = 'separator_example' # str |  (optional)
@@ -312,7 +306,7 @@ with whisparr.ApiClient(configuration) as api_client:
     resource_name = 'resource_name_example' # str |  (optional)
 
     try:
-        api_instance.get_naming_config_examples(rename_episodes=rename_episodes, replace_illegal_characters=replace_illegal_characters, multi_episode_style=multi_episode_style, standard_episode_format=standard_episode_format, daily_episode_format=daily_episode_format, anime_episode_format=anime_episode_format, series_folder_format=series_folder_format, season_folder_format=season_folder_format, specials_folder_format=specials_folder_format, include_series_title=include_series_title, include_episode_title=include_episode_title, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
+        api_instance.get_naming_config_examples(rename_movies=rename_movies, replace_illegal_characters=replace_illegal_characters, colon_replacement_format=colon_replacement_format, standard_movie_format=standard_movie_format, movie_folder_format=movie_folder_format, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
     except Exception as e:
         print("Exception when calling NamingConfigApi->get_naming_config_examples: %s\n" % e)
 ```
@@ -325,10 +319,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -352,17 +346,11 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.NamingConfigApi(api_client)
-    rename_episodes = True # bool |  (optional)
+    rename_movies = True # bool |  (optional)
     replace_illegal_characters = True # bool |  (optional)
-    multi_episode_style = 56 # int |  (optional)
-    standard_episode_format = 'standard_episode_format_example' # str |  (optional)
-    daily_episode_format = 'daily_episode_format_example' # str |  (optional)
-    anime_episode_format = 'anime_episode_format_example' # str |  (optional)
-    series_folder_format = 'series_folder_format_example' # str |  (optional)
-    season_folder_format = 'season_folder_format_example' # str |  (optional)
-    specials_folder_format = 'specials_folder_format_example' # str |  (optional)
-    include_series_title = True # bool |  (optional)
-    include_episode_title = True # bool |  (optional)
+    colon_replacement_format = whisparr.ColonReplacementFormat() # ColonReplacementFormat |  (optional)
+    standard_movie_format = 'standard_movie_format_example' # str |  (optional)
+    movie_folder_format = 'movie_folder_format_example' # str |  (optional)
     include_quality = True # bool |  (optional)
     replace_spaces = True # bool |  (optional)
     separator = 'separator_example' # str |  (optional)
@@ -371,7 +359,7 @@ with whisparr.ApiClient(configuration) as api_client:
     resource_name = 'resource_name_example' # str |  (optional)
 
     try:
-        api_instance.get_naming_config_examples(rename_episodes=rename_episodes, replace_illegal_characters=replace_illegal_characters, multi_episode_style=multi_episode_style, standard_episode_format=standard_episode_format, daily_episode_format=daily_episode_format, anime_episode_format=anime_episode_format, series_folder_format=series_folder_format, season_folder_format=season_folder_format, specials_folder_format=specials_folder_format, include_series_title=include_series_title, include_episode_title=include_episode_title, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
+        api_instance.get_naming_config_examples(rename_movies=rename_movies, replace_illegal_characters=replace_illegal_characters, colon_replacement_format=colon_replacement_format, standard_movie_format=standard_movie_format, movie_folder_format=movie_folder_format, include_quality=include_quality, replace_spaces=replace_spaces, separator=separator, number_style=number_style, id=id, resource_name=resource_name)
     except Exception as e:
         print("Exception when calling NamingConfigApi->get_naming_config_examples: %s\n" % e)
 ```
@@ -380,17 +368,11 @@ with whisparr.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rename_episodes** | **bool**|  | [optional] 
+ **rename_movies** | **bool**|  | [optional] 
  **replace_illegal_characters** | **bool**|  | [optional] 
- **multi_episode_style** | **int**|  | [optional] 
- **standard_episode_format** | **str**|  | [optional] 
- **daily_episode_format** | **str**|  | [optional] 
- **anime_episode_format** | **str**|  | [optional] 
- **series_folder_format** | **str**|  | [optional] 
- **season_folder_format** | **str**|  | [optional] 
- **specials_folder_format** | **str**|  | [optional] 
- **include_series_title** | **bool**|  | [optional] 
- **include_episode_title** | **bool**|  | [optional] 
+ **colon_replacement_format** | [**ColonReplacementFormat**](.md)|  | [optional] 
+ **standard_movie_format** | **str**|  | [optional] 
+ **movie_folder_format** | **str**|  | [optional] 
  **include_quality** | **bool**|  | [optional] 
  **replace_spaces** | **bool**|  | [optional] 
  **separator** | **str**|  | [optional] 
@@ -433,10 +415,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -479,10 +461,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters

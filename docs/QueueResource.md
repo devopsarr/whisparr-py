@@ -5,10 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**series_id** | **int** |  | [optional] 
-**episode_id** | **int** |  | [optional] 
-**series** | [**SeriesResource**](SeriesResource.md) |  | [optional] 
-**episode** | [**EpisodeResource**](EpisodeResource.md) |  | [optional] 
+**movie_id** | **int** |  | [optional] 
+**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
 **languages** | [**List[Language]**](Language.md) |  | [optional] 
 **quality** | [**QualityModel**](QualityModel.md) |  | [optional] 
 **custom_formats** | [**List[CustomFormatResource]**](CustomFormatResource.md) |  | [optional] 

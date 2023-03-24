@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **person_name** | **str** |  | [optional] 
 **credit_tmdb_id** | **str** |  | [optional] 
 **person_tmdb_id** | **int** |  | [optional] 
-**movie_id** | **int** |  | [optional] 
+**movie_metadata_id** | **int** |  | [optional] 
 **images** | [**List[MediaCover]**](MediaCover.md) |  | [optional] 
 **department** | **str** |  | [optional] 
 **job** | **str** |  | [optional] 

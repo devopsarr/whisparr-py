@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **ratings** | [**Ratings**](Ratings.md) |  | [optional] 
 **movie_file** | [**MovieFileResource**](MovieFileResource.md) |  | [optional] 
 **collection** | [**MovieCollection**](MovieCollection.md) |  | [optional] 
+**popularity** | **float** |  | [optional] 
 
 ## Example
 

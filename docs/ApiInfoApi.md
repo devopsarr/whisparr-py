@@ -1,6 +1,6 @@
 # whisparr.ApiInfoApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_api**
-> get_api()
+> ApiInfoResource get_api()
 
 
 
@@ -22,10 +22,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -51,7 +51,9 @@ with whisparr.ApiClient(configuration) as api_client:
     api_instance = whisparr.ApiInfoApi(api_client)
 
     try:
-        api_instance.get_api()
+        api_response = api_instance.get_api()
+        print("The response of ApiInfoApi->get_api:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling ApiInfoApi->get_api: %s\n" % e)
 ```
@@ -64,10 +66,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,7 +95,9 @@ with whisparr.ApiClient(configuration) as api_client:
     api_instance = whisparr.ApiInfoApi(api_client)
 
     try:
-        api_instance.get_api()
+        api_response = api_instance.get_api()
+        print("The response of ApiInfoApi->get_api:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling ApiInfoApi->get_api: %s\n" % e)
 ```
@@ -103,7 +107,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ApiInfoResource**](ApiInfoResource.md)
 
 ### Authorization
 
@@ -112,7 +116,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

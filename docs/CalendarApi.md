@@ -1,6 +1,6 @@
 # whisparr.CalendarApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_calendar_by_id**
-> EpisodeResource get_calendar_by_id(id)
+> MovieResource get_calendar_by_id(id)
 
 
 
@@ -23,10 +23,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -68,10 +68,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EpisodeResource**](EpisodeResource.md)
+[**MovieResource**](MovieResource.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calendar**
-> List[EpisodeResource] list_calendar(start=start, end=end, unmonitored=unmonitored, include_series=include_series, include_episode_file=include_episode_file, include_episode_images=include_episode_images)
+> List[MovieResource] list_calendar(start=start, end=end, unmonitored=unmonitored)
 
 
 
@@ -146,10 +146,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -176,12 +176,9 @@ with whisparr.ApiClient(configuration) as api_client:
     start = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     end = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     unmonitored = False # bool |  (optional) (default to False)
-    include_series = False # bool |  (optional) (default to False)
-    include_episode_file = False # bool |  (optional) (default to False)
-    include_episode_images = False # bool |  (optional) (default to False)
 
     try:
-        api_response = api_instance.list_calendar(start=start, end=end, unmonitored=unmonitored, include_series=include_series, include_episode_file=include_episode_file, include_episode_images=include_episode_images)
+        api_response = api_instance.list_calendar(start=start, end=end, unmonitored=unmonitored)
         print("The response of CalendarApi->list_calendar:\n")
         pprint(api_response)
     except Exception as e:
@@ -196,10 +193,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -226,12 +223,9 @@ with whisparr.ApiClient(configuration) as api_client:
     start = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     end = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     unmonitored = False # bool |  (optional) (default to False)
-    include_series = False # bool |  (optional) (default to False)
-    include_episode_file = False # bool |  (optional) (default to False)
-    include_episode_images = False # bool |  (optional) (default to False)
 
     try:
-        api_response = api_instance.list_calendar(start=start, end=end, unmonitored=unmonitored, include_series=include_series, include_episode_file=include_episode_file, include_episode_images=include_episode_images)
+        api_response = api_instance.list_calendar(start=start, end=end, unmonitored=unmonitored)
         print("The response of CalendarApi->list_calendar:\n")
         pprint(api_response)
     except Exception as e:
@@ -245,13 +239,10 @@ Name | Type | Description  | Notes
  **start** | **datetime**|  | [optional] 
  **end** | **datetime**|  | [optional] 
  **unmonitored** | **bool**|  | [optional] [default to False]
- **include_series** | **bool**|  | [optional] [default to False]
- **include_episode_file** | **bool**|  | [optional] [default to False]
- **include_episode_images** | **bool**|  | [optional] [default to False]
 
 ### Return type
 
-[**List[EpisodeResource]**](EpisodeResource.md)
+[**List[MovieResource]**](MovieResource.md)
 
 ### Authorization
 
@@ -260,7 +251,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

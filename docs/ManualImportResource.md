@@ -10,15 +10,13 @@ Name | Type | Description | Notes
 **folder_name** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **size** | **int** |  | [optional] 
-**series** | [**SeriesResource**](SeriesResource.md) |  | [optional] 
-**season_number** | **int** |  | [optional] 
-**episodes** | [**List[EpisodeResource]**](EpisodeResource.md) |  | [optional] 
-**episode_file_id** | **int** |  | [optional] 
-**release_group** | **str** |  | [optional] 
+**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
 **quality** | [**QualityModel**](QualityModel.md) |  | [optional] 
 **languages** | [**List[Language]**](Language.md) |  | [optional] 
+**release_group** | **str** |  | [optional] 
 **quality_weight** | **int** |  | [optional] 
 **download_id** | **str** |  | [optional] 
+**custom_formats** | [**List[CustomFormatResource]**](CustomFormatResource.md) |  | [optional] 
 **rejections** | [**List[Rejection]**](Rejection.md) |  | [optional] 
 
 ## Example

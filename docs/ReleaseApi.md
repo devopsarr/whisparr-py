@@ -1,6 +1,6 @@
 # whisparr.ReleaseApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,10 +24,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -67,10 +67,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,7 +118,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -143,10 +143,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -188,10 +188,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_release**
-> List[ReleaseResource] list_release(series_id=series_id, episode_id=episode_id, season_number=season_number)
+> List[ReleaseResource] list_release(movie_id=movie_id)
 
 
 
@@ -266,10 +266,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -293,12 +293,10 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.ReleaseApi(api_client)
-    series_id = 56 # int |  (optional)
-    episode_id = 56 # int |  (optional)
-    season_number = 56 # int |  (optional)
+    movie_id = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.list_release(series_id=series_id, episode_id=episode_id, season_number=season_number)
+        api_response = api_instance.list_release(movie_id=movie_id)
         print("The response of ReleaseApi->list_release:\n")
         pprint(api_response)
     except Exception as e:
@@ -313,10 +311,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -340,12 +338,10 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.ReleaseApi(api_client)
-    series_id = 56 # int |  (optional)
-    episode_id = 56 # int |  (optional)
-    season_number = 56 # int |  (optional)
+    movie_id = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.list_release(series_id=series_id, episode_id=episode_id, season_number=season_number)
+        api_response = api_instance.list_release(movie_id=movie_id)
         print("The response of ReleaseApi->list_release:\n")
         pprint(api_response)
     except Exception as e:
@@ -356,9 +352,7 @@ with whisparr.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **series_id** | **int**|  | [optional] 
- **episode_id** | **int**|  | [optional] 
- **season_number** | **int**|  | [optional] 
+ **movie_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -371,7 +365,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

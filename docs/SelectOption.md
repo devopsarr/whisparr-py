@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **order** | **int** |  | [optional] 
 **hint** | **str** |  | [optional] 
+**divider_after** | **bool** |  | [optional] 
 
 ## Example
 
