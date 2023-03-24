@@ -19,6 +19,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel
+from whisparr.models.authentication_required_type import AuthenticationRequiredType
 from whisparr.models.authentication_type import AuthenticationType
 from whisparr.models.certificate_validation_type import CertificateValidationType
 from whisparr.models.proxy_type import ProxyType
@@ -37,6 +38,7 @@ class HostConfigResource(BaseModel):
     enable_ssl: Optional[bool]
     launch_browser: Optional[bool]
     authentication_method: Optional[AuthenticationType]
+    authentication_required: Optional[AuthenticationRequiredType]
     analytics_enabled: Optional[bool]
     username: Optional[str]
     password: Optional[str]
@@ -47,6 +49,8 @@ class HostConfigResource(BaseModel):
     ssl_cert_path: Optional[str]
     ssl_cert_password: Optional[str]
     url_base: Optional[str]
+    instance_name: Optional[str]
+    application_url: Optional[str]
     update_automatically: Optional[bool]
     update_mechanism: Optional[UpdateMechanism]
     update_script_path: Optional[str]
@@ -62,7 +66,7 @@ class HostConfigResource(BaseModel):
     backup_folder: Optional[str]
     backup_interval: Optional[int]
     backup_retention: Optional[int]
-    __properties = ["id", "bindAddress", "port", "sslPort", "enableSsl", "launchBrowser", "authenticationMethod", "analyticsEnabled", "username", "password", "logLevel", "consoleLogLevel", "branch", "apiKey", "sslCertPath", "sslCertPassword", "urlBase", "updateAutomatically", "updateMechanism", "updateScriptPath", "proxyEnabled", "proxyType", "proxyHostname", "proxyPort", "proxyUsername", "proxyPassword", "proxyBypassFilter", "proxyBypassLocalAddresses", "certificateValidation", "backupFolder", "backupInterval", "backupRetention"]
+    __properties = ["id", "bindAddress", "port", "sslPort", "enableSsl", "launchBrowser", "authenticationMethod", "authenticationRequired", "analyticsEnabled", "username", "password", "logLevel", "consoleLogLevel", "branch", "apiKey", "sslCertPath", "sslCertPassword", "urlBase", "instanceName", "applicationUrl", "updateAutomatically", "updateMechanism", "updateScriptPath", "proxyEnabled", "proxyType", "proxyHostname", "proxyPort", "proxyUsername", "proxyPassword", "proxyBypassFilter", "proxyBypassLocalAddresses", "certificateValidation", "backupFolder", "backupInterval", "backupRetention"]
 
     class Config:
         allow_population_by_field_name = True
@@ -131,6 +135,14 @@ class HostConfigResource(BaseModel):
         if self.url_base is None:
             _dict['urlBase'] = None
 
+        # set to None if instance_name (nullable) is None
+        if self.instance_name is None:
+            _dict['instanceName'] = None
+
+        # set to None if application_url (nullable) is None
+        if self.application_url is None:
+            _dict['applicationUrl'] = None
+
         # set to None if update_script_path (nullable) is None
         if self.update_script_path is None:
             _dict['updateScriptPath'] = None
@@ -174,6 +186,7 @@ class HostConfigResource(BaseModel):
             "enable_ssl": obj.get("enableSsl"),
             "launch_browser": obj.get("launchBrowser"),
             "authentication_method": obj.get("authenticationMethod"),
+            "authentication_required": obj.get("authenticationRequired"),
             "analytics_enabled": obj.get("analyticsEnabled"),
             "username": obj.get("username"),
             "password": obj.get("password"),
@@ -184,6 +197,8 @@ class HostConfigResource(BaseModel):
             "ssl_cert_path": obj.get("sslCertPath"),
             "ssl_cert_password": obj.get("sslCertPassword"),
             "url_base": obj.get("urlBase"),
+            "instance_name": obj.get("instanceName"),
+            "application_url": obj.get("applicationUrl"),
             "update_automatically": obj.get("updateAutomatically"),
             "update_mechanism": obj.get("updateMechanism"),
             "update_script_path": obj.get("updateScriptPath"),

@@ -23,9 +23,9 @@ from pydantic import StrictBool, StrictInt
 
 from typing import List, Optional
 
+from whisparr.models.episode_history_event_type import EpisodeHistoryEventType
 from whisparr.models.history_resource import HistoryResource
 from whisparr.models.history_resource_paging_resource import HistoryResourcePagingResource
-from whisparr.models.movie_history_event_type import MovieHistoryEventType
 
 from whisparr.api_client import ApiClient
 from whisparr.exceptions import (  # noqa: F401
@@ -160,7 +160,7 @@ class HistoryApi(object):
         _body_params = None
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
@@ -182,17 +182,19 @@ class HistoryApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_history(self, include_movie : Optional[StrictBool] = None, **kwargs) -> HistoryResourcePagingResource:  # noqa: E501
+    def get_history(self, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs) -> HistoryResourcePagingResource:  # noqa: E501
         """get_history  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_history(include_movie, async_req=True)
+        >>> thread = api.get_history(include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param include_movie:
-        :type include_movie: bool
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -209,20 +211,22 @@ class HistoryApi(object):
         :rtype: HistoryResourcePagingResource
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_history_with_http_info(include_movie, **kwargs)  # noqa: E501
+        return self.get_history_with_http_info(include_series, include_episode, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_history_with_http_info(self, include_movie : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+    def get_history_with_http_info(self, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs):  # noqa: E501
         """get_history  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_history_with_http_info(include_movie, async_req=True)
+        >>> thread = api.get_history_with_http_info(include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param include_movie:
-        :type include_movie: bool
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -250,7 +254,8 @@ class HistoryApi(object):
         _params = locals()
 
         _all_params = [
-            'include_movie'
+            'include_series',
+            'include_episode'
         ]
         _all_params.extend(
             [
@@ -281,8 +286,10 @@ class HistoryApi(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('include_movie') is not None:  # noqa: E501
-            _query_params.append(('includeMovie', _params['include_movie']))
+        if _params.get('include_series') is not None:  # noqa: E501
+            _query_params.append(('includeSeries', _params['include_series']))
+        if _params.get('include_episode') is not None:  # noqa: E501
+            _query_params.append(('includeEpisode', _params['include_episode']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -296,10 +303,10 @@ class HistoryApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "HistoryResourcePagingResource",
@@ -323,21 +330,25 @@ class HistoryApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_history_movie(self, movie_id : Optional[StrictInt] = None, event_type : Optional[MovieHistoryEventType] = None, include_movie : Optional[StrictBool] = None, **kwargs) -> List[HistoryResource]:  # noqa: E501
-        """list_history_movie  # noqa: E501
+    def list_history_series(self, series_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, event_type : Optional[EpisodeHistoryEventType] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs) -> List[HistoryResource]:  # noqa: E501
+        """list_history_series  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_history_movie(movie_id, event_type, include_movie, async_req=True)
+        >>> thread = api.list_history_series(series_id, season_number, event_type, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param season_number:
+        :type season_number: int
         :param event_type:
-        :type event_type: MovieHistoryEventType
-        :param include_movie:
-        :type include_movie: bool
+        :type event_type: EpisodeHistoryEventType
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -354,24 +365,28 @@ class HistoryApi(object):
         :rtype: List[HistoryResource]
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_history_movie_with_http_info(movie_id, event_type, include_movie, **kwargs)  # noqa: E501
+        return self.list_history_series_with_http_info(series_id, season_number, event_type, include_series, include_episode, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_history_movie_with_http_info(self, movie_id : Optional[StrictInt] = None, event_type : Optional[MovieHistoryEventType] = None, include_movie : Optional[StrictBool] = None, **kwargs):  # noqa: E501
-        """list_history_movie  # noqa: E501
+    def list_history_series_with_http_info(self, series_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, event_type : Optional[EpisodeHistoryEventType] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+        """list_history_series  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_history_movie_with_http_info(movie_id, event_type, include_movie, async_req=True)
+        >>> thread = api.list_history_series_with_http_info(series_id, season_number, event_type, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param season_number:
+        :type season_number: int
         :param event_type:
-        :type event_type: MovieHistoryEventType
-        :param include_movie:
-        :type include_movie: bool
+        :type event_type: EpisodeHistoryEventType
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -399,9 +414,11 @@ class HistoryApi(object):
         _params = locals()
 
         _all_params = [
-            'movie_id',
+            'series_id',
+            'season_number',
             'event_type',
-            'include_movie'
+            'include_series',
+            'include_episode'
         ]
         _all_params.extend(
             [
@@ -420,7 +437,7 @@ class HistoryApi(object):
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_history_movie" % _key
+                    " to method list_history_series" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -432,12 +449,16 @@ class HistoryApi(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('movie_id') is not None:  # noqa: E501
-            _query_params.append(('movieId', _params['movie_id']))
+        if _params.get('series_id') is not None:  # noqa: E501
+            _query_params.append(('seriesId', _params['series_id']))
+        if _params.get('season_number') is not None:  # noqa: E501
+            _query_params.append(('seasonNumber', _params['season_number']))
         if _params.get('event_type') is not None:  # noqa: E501
             _query_params.append(('eventType', _params['event_type']))
-        if _params.get('include_movie') is not None:  # noqa: E501
-            _query_params.append(('includeMovie', _params['include_movie']))
+        if _params.get('include_series') is not None:  # noqa: E501
+            _query_params.append(('includeSeries', _params['include_series']))
+        if _params.get('include_episode') is not None:  # noqa: E501
+            _query_params.append(('includeEpisode', _params['include_episode']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -451,17 +472,17 @@ class HistoryApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "List[HistoryResource]",
         }
 
         return self.api_client.call_api(
-            '/api/v3/history/movie', 'GET',
+            '/api/v3/history/series', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -478,21 +499,23 @@ class HistoryApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_history_since(self, var_date : Optional[datetime] = None, event_type : Optional[MovieHistoryEventType] = None, include_movie : Optional[StrictBool] = None, **kwargs) -> List[HistoryResource]:  # noqa: E501
+    def list_history_since(self, var_date : Optional[datetime] = None, event_type : Optional[EpisodeHistoryEventType] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs) -> List[HistoryResource]:  # noqa: E501
         """list_history_since  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_history_since(var_date, event_type, include_movie, async_req=True)
+        >>> thread = api.list_history_since(var_date, event_type, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
         :param var_date:
         :type var_date: datetime
         :param event_type:
-        :type event_type: MovieHistoryEventType
-        :param include_movie:
-        :type include_movie: bool
+        :type event_type: EpisodeHistoryEventType
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -509,24 +532,26 @@ class HistoryApi(object):
         :rtype: List[HistoryResource]
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_history_since_with_http_info(var_date, event_type, include_movie, **kwargs)  # noqa: E501
+        return self.list_history_since_with_http_info(var_date, event_type, include_series, include_episode, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_history_since_with_http_info(self, var_date : Optional[datetime] = None, event_type : Optional[MovieHistoryEventType] = None, include_movie : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+    def list_history_since_with_http_info(self, var_date : Optional[datetime] = None, event_type : Optional[EpisodeHistoryEventType] = None, include_series : Optional[StrictBool] = None, include_episode : Optional[StrictBool] = None, **kwargs):  # noqa: E501
         """list_history_since  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_history_since_with_http_info(var_date, event_type, include_movie, async_req=True)
+        >>> thread = api.list_history_since_with_http_info(var_date, event_type, include_series, include_episode, async_req=True)
         >>> result = thread.get()
 
         :param var_date:
         :type var_date: datetime
         :param event_type:
-        :type event_type: MovieHistoryEventType
-        :param include_movie:
-        :type include_movie: bool
+        :type event_type: EpisodeHistoryEventType
+        :param include_series:
+        :type include_series: bool
+        :param include_episode:
+        :type include_episode: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -556,7 +581,8 @@ class HistoryApi(object):
         _all_params = [
             'var_date',
             'event_type',
-            'include_movie'
+            'include_series',
+            'include_episode'
         ]
         _all_params.extend(
             [
@@ -591,8 +617,10 @@ class HistoryApi(object):
             _query_params.append(('date', _params['var_date']))
         if _params.get('event_type') is not None:  # noqa: E501
             _query_params.append(('eventType', _params['event_type']))
-        if _params.get('include_movie') is not None:  # noqa: E501
-            _query_params.append(('includeMovie', _params['include_movie']))
+        if _params.get('include_series') is not None:  # noqa: E501
+            _query_params.append(('includeSeries', _params['include_series']))
+        if _params.get('include_episode') is not None:  # noqa: E501
+            _query_params.append(('includeEpisode', _params['include_episode']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -606,10 +634,10 @@ class HistoryApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "List[HistoryResource]",

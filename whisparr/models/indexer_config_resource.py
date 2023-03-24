@@ -28,14 +28,10 @@ class IndexerConfigResource(BaseModel):
     """
     id: Optional[int]
     minimum_age: Optional[int]
-    maximum_size: Optional[int]
     retention: Optional[int]
+    maximum_size: Optional[int]
     rss_sync_interval: Optional[int]
-    prefer_indexer_flags: Optional[bool]
-    availability_delay: Optional[int]
-    allow_hardcoded_subs: Optional[bool]
-    whitelisted_hardcoded_subs: Optional[str]
-    __properties = ["id", "minimumAge", "maximumSize", "retention", "rssSyncInterval", "preferIndexerFlags", "availabilityDelay", "allowHardcodedSubs", "whitelistedHardcodedSubs"]
+    __properties = ["id", "minimumAge", "retention", "maximumSize", "rssSyncInterval"]
 
     class Config:
         allow_population_by_field_name = True
@@ -64,10 +60,6 @@ class IndexerConfigResource(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # set to None if whitelisted_hardcoded_subs (nullable) is None
-        if self.whitelisted_hardcoded_subs is None:
-            _dict['whitelistedHardcodedSubs'] = None
-
         return _dict
 
     @classmethod
@@ -82,13 +74,9 @@ class IndexerConfigResource(BaseModel):
         _obj = IndexerConfigResource.parse_obj({
             "id": obj.get("id"),
             "minimum_age": obj.get("minimumAge"),
-            "maximum_size": obj.get("maximumSize"),
             "retention": obj.get("retention"),
-            "rss_sync_interval": obj.get("rssSyncInterval"),
-            "prefer_indexer_flags": obj.get("preferIndexerFlags"),
-            "availability_delay": obj.get("availabilityDelay"),
-            "allow_hardcoded_subs": obj.get("allowHardcodedSubs"),
-            "whitelisted_hardcoded_subs": obj.get("whitelistedHardcodedSubs")
+            "maximum_size": obj.get("maximumSize"),
+            "rss_sync_interval": obj.get("rssSyncInterval")
         })
         return _obj
 

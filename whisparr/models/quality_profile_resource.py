@@ -19,7 +19,6 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel
-from whisparr.models.language import Language
 from whisparr.models.profile_format_item_resource import ProfileFormatItemResource
 from whisparr.models.quality_profile_quality_item_resource import QualityProfileQualityItemResource
 
@@ -37,8 +36,7 @@ class QualityProfileResource(BaseModel):
     min_format_score: Optional[int]
     cutoff_format_score: Optional[int]
     format_items: Optional[List]
-    language: Optional[Language]
-    __properties = ["id", "name", "upgradeAllowed", "cutoff", "items", "minFormatScore", "cutoffFormatScore", "formatItems", "language"]
+    __properties = ["id", "name", "upgradeAllowed", "cutoff", "items", "minFormatScore", "cutoffFormatScore", "formatItems"]
 
     class Config:
         allow_population_by_field_name = True
@@ -81,9 +79,6 @@ class QualityProfileResource(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['formatItems'] = _items
-        # override the default output from pydantic by calling `to_dict()` of language
-        if self.language:
-            _dict['language'] = self.language.to_dict()
         # set to None if name (nullable) is None
         if self.name is None:
             _dict['name'] = None
@@ -115,8 +110,7 @@ class QualityProfileResource(BaseModel):
             "items": [QualityProfileQualityItemResource.from_dict(_item) for _item in obj.get("items")] if obj.get("items") is not None else None,
             "min_format_score": obj.get("minFormatScore"),
             "cutoff_format_score": obj.get("cutoffFormatScore"),
-            "format_items": [ProfileFormatItemResource.from_dict(_item) for _item in obj.get("formatItems")] if obj.get("formatItems") is not None else None,
-            "language": Language.from_dict(obj.get("language")) if obj.get("language") is not None else None
+            "format_items": [ProfileFormatItemResource.from_dict(_item) for _item in obj.get("formatItems")] if obj.get("formatItems") is not None else None
         })
         return _obj
 

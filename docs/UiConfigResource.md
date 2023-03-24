@@ -7,13 +7,12 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **first_day_of_week** | **int** |  | [optional] 
 **calendar_week_column_header** | **str** |  | [optional] 
-**movie_runtime_format** | [**MovieRuntimeFormatType**](MovieRuntimeFormatType.md) |  | [optional] 
 **short_date_format** | **str** |  | [optional] 
 **long_date_format** | **str** |  | [optional] 
 **time_format** | **str** |  | [optional] 
 **show_relative_dates** | **bool** |  | [optional] 
 **enable_color_impaired_mode** | **bool** |  | [optional] 
-**movie_info_language** | **int** |  | [optional] 
+**theme** | **str** |  | [optional] 
 **ui_language** | **int** |  | [optional] 
 
 ## Example

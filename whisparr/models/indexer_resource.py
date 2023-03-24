@@ -46,8 +46,9 @@ class IndexerResource(BaseModel):
     supports_search: Optional[bool]
     protocol: Optional[DownloadProtocol]
     priority: Optional[int]
+    season_search_maximum_single_episode_age: Optional[int]
     download_client_id: Optional[int]
-    __properties = ["id", "name", "fields", "implementationName", "implementation", "configContract", "infoLink", "message", "tags", "presets", "enableRss", "enableAutomaticSearch", "enableInteractiveSearch", "supportsRss", "supportsSearch", "protocol", "priority", "downloadClientId"]
+    __properties = ["id", "name", "fields", "implementationName", "implementation", "configContract", "infoLink", "message", "tags", "presets", "enableRss", "enableAutomaticSearch", "enableInteractiveSearch", "supportsRss", "supportsSearch", "protocol", "priority", "seasonSearchMaximumSingleEpisodeAge", "downloadClientId"]
 
     class Config:
         allow_population_by_field_name = True
@@ -154,6 +155,7 @@ class IndexerResource(BaseModel):
             "supports_search": obj.get("supportsSearch"),
             "protocol": obj.get("protocol"),
             "priority": obj.get("priority"),
+            "season_search_maximum_single_episode_age": obj.get("seasonSearchMaximumSingleEpisodeAge"),
             "download_client_id": obj.get("downloadClientId")
         })
         return _obj

@@ -19,8 +19,8 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel
+from whisparr.models.episode_resource import EpisodeResource
 from whisparr.models.language import Language
-from whisparr.models.movie_resource import MovieResource
 from whisparr.models.quality_model import QualityModel
 from whisparr.models.rejection import Rejection
 
@@ -32,14 +32,16 @@ class ManualImportReprocessResource(BaseModel):
     """
     id: Optional[int]
     path: Optional[str]
-    movie_id: Optional[int]
-    movie: Optional[MovieResource]
+    series_id: Optional[int]
+    season_number: Optional[int]
+    episodes: Optional[List]
+    episode_ids: Optional[List]
     quality: Optional[QualityModel]
     languages: Optional[List]
     release_group: Optional[str]
     download_id: Optional[str]
     rejections: Optional[List]
-    __properties = ["id", "path", "movieId", "movie", "quality", "languages", "releaseGroup", "downloadId", "rejections"]
+    __properties = ["id", "path", "seriesId", "seasonNumber", "episodes", "episodeIds", "quality", "languages", "releaseGroup", "downloadId", "rejections"]
 
     class Config:
         allow_population_by_field_name = True
@@ -68,9 +70,13 @@ class ManualImportReprocessResource(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of movie
-        if self.movie:
-            _dict['movie'] = self.movie.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in episodes (list)
+        _items = []
+        if self.episodes:
+            for _item in self.episodes:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['episodes'] = _items
         # override the default output from pydantic by calling `to_dict()` of quality
         if self.quality:
             _dict['quality'] = self.quality.to_dict()
@@ -91,6 +97,18 @@ class ManualImportReprocessResource(BaseModel):
         # set to None if path (nullable) is None
         if self.path is None:
             _dict['path'] = None
+
+        # set to None if season_number (nullable) is None
+        if self.season_number is None:
+            _dict['seasonNumber'] = None
+
+        # set to None if episodes (nullable) is None
+        if self.episodes is None:
+            _dict['episodes'] = None
+
+        # set to None if episode_ids (nullable) is None
+        if self.episode_ids is None:
+            _dict['episodeIds'] = None
 
         # set to None if languages (nullable) is None
         if self.languages is None:
@@ -122,8 +140,10 @@ class ManualImportReprocessResource(BaseModel):
         _obj = ManualImportReprocessResource.parse_obj({
             "id": obj.get("id"),
             "path": obj.get("path"),
-            "movie_id": obj.get("movieId"),
-            "movie": MovieResource.from_dict(obj.get("movie")) if obj.get("movie") is not None else None,
+            "series_id": obj.get("seriesId"),
+            "season_number": obj.get("seasonNumber"),
+            "episodes": [EpisodeResource.from_dict(_item) for _item in obj.get("episodes")] if obj.get("episodes") is not None else None,
+            "episode_ids": obj.get("episodeIds"),
             "quality": QualityModel.from_dict(obj.get("quality")) if obj.get("quality") is not None else None,
             "languages": [Language.from_dict(_item) for _item in obj.get("languages")] if obj.get("languages") is not None else None,
             "release_group": obj.get("releaseGroup"),

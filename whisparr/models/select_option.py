@@ -30,8 +30,7 @@ class SelectOption(BaseModel):
     name: Optional[str]
     order: Optional[int]
     hint: Optional[str]
-    divider_after: Optional[bool]
-    __properties = ["value", "name", "order", "hint", "dividerAfter"]
+    __properties = ["value", "name", "order", "hint"]
 
     class Config:
         allow_population_by_field_name = True
@@ -83,8 +82,7 @@ class SelectOption(BaseModel):
             "value": obj.get("value"),
             "name": obj.get("name"),
             "order": obj.get("order"),
-            "hint": obj.get("hint"),
-            "divider_after": obj.get("dividerAfter")
+            "hint": obj.get("hint")
         })
         return _obj
 

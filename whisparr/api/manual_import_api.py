@@ -17,7 +17,7 @@ import re  # noqa: F401
 from pydantic import validate_arguments, ValidationError
 from typing_extensions import Annotated
 
-from pydantic import StrictBool, StrictInt, StrictStr
+from pydantic import StrictBool, StrictInt, StrictStr, conlist
 
 from typing import List, Optional
 
@@ -44,7 +44,7 @@ class ManualImportApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def create_manual_import(self, manual_import_reprocess_resource : Optional[List[ManualImportReprocessResource]] = None, **kwargs) -> None:  # noqa: E501
+    def create_manual_import(self, manual_import_reprocess_resource : Optional[conlist(ManualImportReprocessResource)] = None, **kwargs) -> None:  # noqa: E501
         """create_manual_import  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -74,7 +74,7 @@ class ManualImportApi(object):
         return self.create_manual_import_with_http_info(manual_import_reprocess_resource, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_manual_import_with_http_info(self, manual_import_reprocess_resource : Optional[List[ManualImportReprocessResource]] = None, **kwargs):  # noqa: E501
+    def create_manual_import_with_http_info(self, manual_import_reprocess_resource : Optional[conlist(ManualImportReprocessResource)] = None, **kwargs):  # noqa: E501
         """create_manual_import  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -159,12 +159,12 @@ class ManualImportApi(object):
         # set the HTTP header `Content-Type`
         _content_types_list = _params.get('_content_type',
             self.api_client.select_header_content_type(
-                ['application/json', 'text/json', 'application/*+json']))
+                ['application/json']))
         if _content_types_list:
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {}
 
@@ -186,21 +186,23 @@ class ManualImportApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_manual_import(self, folder : Optional[StrictStr] = None, download_id : Optional[StrictStr] = None, movie_id : Optional[StrictInt] = None, filter_existing_files : Optional[StrictBool] = None, **kwargs) -> List[ManualImportResource]:  # noqa: E501
+    def list_manual_import(self, folder : Optional[StrictStr] = None, download_id : Optional[StrictStr] = None, series_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, filter_existing_files : Optional[StrictBool] = None, **kwargs) -> List[ManualImportResource]:  # noqa: E501
         """list_manual_import  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_manual_import(folder, download_id, movie_id, filter_existing_files, async_req=True)
+        >>> thread = api.list_manual_import(folder, download_id, series_id, season_number, filter_existing_files, async_req=True)
         >>> result = thread.get()
 
         :param folder:
         :type folder: str
         :param download_id:
         :type download_id: str
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param season_number:
+        :type season_number: int
         :param filter_existing_files:
         :type filter_existing_files: bool
         :param async_req: Whether to execute the request asynchronously.
@@ -219,24 +221,26 @@ class ManualImportApi(object):
         :rtype: List[ManualImportResource]
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_manual_import_with_http_info(folder, download_id, movie_id, filter_existing_files, **kwargs)  # noqa: E501
+        return self.list_manual_import_with_http_info(folder, download_id, series_id, season_number, filter_existing_files, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_manual_import_with_http_info(self, folder : Optional[StrictStr] = None, download_id : Optional[StrictStr] = None, movie_id : Optional[StrictInt] = None, filter_existing_files : Optional[StrictBool] = None, **kwargs):  # noqa: E501
+    def list_manual_import_with_http_info(self, folder : Optional[StrictStr] = None, download_id : Optional[StrictStr] = None, series_id : Optional[StrictInt] = None, season_number : Optional[StrictInt] = None, filter_existing_files : Optional[StrictBool] = None, **kwargs):  # noqa: E501
         """list_manual_import  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_manual_import_with_http_info(folder, download_id, movie_id, filter_existing_files, async_req=True)
+        >>> thread = api.list_manual_import_with_http_info(folder, download_id, series_id, season_number, filter_existing_files, async_req=True)
         >>> result = thread.get()
 
         :param folder:
         :type folder: str
         :param download_id:
         :type download_id: str
-        :param movie_id:
-        :type movie_id: int
+        :param series_id:
+        :type series_id: int
+        :param season_number:
+        :type season_number: int
         :param filter_existing_files:
         :type filter_existing_files: bool
         :param async_req: Whether to execute the request asynchronously.
@@ -268,7 +272,8 @@ class ManualImportApi(object):
         _all_params = [
             'folder',
             'download_id',
-            'movie_id',
+            'series_id',
+            'season_number',
             'filter_existing_files'
         ]
         _all_params.extend(
@@ -304,8 +309,10 @@ class ManualImportApi(object):
             _query_params.append(('folder', _params['folder']))
         if _params.get('download_id') is not None:  # noqa: E501
             _query_params.append(('downloadId', _params['download_id']))
-        if _params.get('movie_id') is not None:  # noqa: E501
-            _query_params.append(('movieId', _params['movie_id']))
+        if _params.get('series_id') is not None:  # noqa: E501
+            _query_params.append(('seriesId', _params['series_id']))
+        if _params.get('season_number') is not None:  # noqa: E501
+            _query_params.append(('seasonNumber', _params['season_number']))
         if _params.get('filter_existing_files') is not None:  # noqa: E501
             _query_params.append(('filterExistingFiles', _params['filter_existing_files']))
 
@@ -321,10 +328,10 @@ class ManualImportApi(object):
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain', 'application/json', 'text/json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['X-Api-Key', 'apikey']  # noqa: E501
+        _auth_settings = ['apikey', 'X-Api-Key']  # noqa: E501
 
         _response_types_map = {
             '200': "List[ManualImportResource]",

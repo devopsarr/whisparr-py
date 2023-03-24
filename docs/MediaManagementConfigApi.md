@@ -16,50 +16,6 @@ Method | HTTP request | Description
 
 ### Example
 
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.MediaManagementConfigApi(api_client)
-
-    try:
-        api_response = api_instance.get_media_management_config()
-        print("The response of MediaManagementConfigApi->get_media_management_config:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MediaManagementConfigApi->get_media_management_config: %s\n" % e)
-```
-
 * Api Key Authentication (apikey):
 ```python
 from __future__ import print_function
@@ -79,17 +35,61 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.MediaManagementConfigApi(api_client)
+
+    try:
+        api_response = api_instance.get_media_management_config()
+        print("The response of MediaManagementConfigApi->get_media_management_config:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MediaManagementConfigApi->get_media_management_config: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -113,12 +113,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -133,51 +133,6 @@ This endpoint does not need any parameter.
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.MediaManagementConfigApi(api_client)
-    id = 56 # int | 
-
-    try:
-        api_response = api_instance.get_media_management_config_by_id(id)
-        print("The response of MediaManagementConfigApi->get_media_management_config_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MediaManagementConfigApi->get_media_management_config_by_id: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -198,17 +153,62 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.MediaManagementConfigApi(api_client)
+    id = 56 # int | 
+
+    try:
+        api_response = api_instance.get_media_management_config_by_id(id)
+        print("The response of MediaManagementConfigApi->get_media_management_config_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MediaManagementConfigApi->get_media_management_config_by_id: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -236,12 +236,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -256,52 +256,6 @@ Name | Type | Description  | Notes
 
 
 ### Example
-
-* Api Key Authentication (X-Api-Key):
-```python
-from __future__ import print_function
-import time
-import os
-import whisparr
-from whisparr.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
-# See configuration.py for a list of all supported configuration parameters.
-configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Api-Key
-configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# Configure API key authorization: apikey
-configuration.api_key['apikey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apikey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with whisparr.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = whisparr.MediaManagementConfigApi(api_client)
-    id = 'id_example' # str | 
-    media_management_config_resource = whisparr.MediaManagementConfigResource() # MediaManagementConfigResource |  (optional)
-
-    try:
-        api_response = api_instance.update_media_management_config(id, media_management_config_resource=media_management_config_resource)
-        print("The response of MediaManagementConfigApi->update_media_management_config:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MediaManagementConfigApi->update_media_management_config: %s\n" % e)
-```
 
 * Api Key Authentication (apikey):
 ```python
@@ -322,17 +276,63 @@ configuration = whisparr.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure API key authorization: X-Api-Key
 configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
+# Enter a context with an instance of the API client
+with whisparr.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = whisparr.MediaManagementConfigApi(api_client)
+    id = 'id_example' # str | 
+    media_management_config_resource = whisparr.MediaManagementConfigResource() # MediaManagementConfigResource |  (optional)
+
+    try:
+        api_response = api_instance.update_media_management_config(id, media_management_config_resource=media_management_config_resource)
+        print("The response of MediaManagementConfigApi->update_media_management_config:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MediaManagementConfigApi->update_media_management_config: %s\n" % e)
+```
+
+* Api Key Authentication (X-Api-Key):
+```python
+from __future__ import print_function
+import time
+import os
+import whisparr
+from whisparr.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:6969
+# See configuration.py for a list of all supported configuration parameters.
+configuration = whisparr.Configuration(
+    host = "http://localhost:6969"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
 configuration.api_key['apikey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Configure API key authorization: X-Api-Key
+configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with whisparr.ApiClient(configuration) as api_client:
@@ -362,11 +362,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[X-Api-Key](../README.md#X-Api-Key), [apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details

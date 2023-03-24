@@ -18,13 +18,13 @@ import json
 
 from datetime import datetime
 from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from whisparr.models.custom_format_resource import CustomFormatResource
 from whisparr.models.download_protocol import DownloadProtocol
+from whisparr.models.episode_resource import EpisodeResource
 from whisparr.models.language import Language
-from whisparr.models.movie_resource import MovieResource
 from whisparr.models.quality_model import QualityModel
-from whisparr.models.time_span import TimeSpan
+from whisparr.models.series_resource import SeriesResource
 from whisparr.models.tracked_download_state import TrackedDownloadState
 from whisparr.models.tracked_download_status import TrackedDownloadStatus
 from whisparr.models.tracked_download_status_message import TrackedDownloadStatusMessage
@@ -36,15 +36,17 @@ class QueueResource(BaseModel):
     Do not edit the class manually.
     """
     id: Optional[int]
-    movie_id: Optional[int]
-    movie: Optional[MovieResource]
+    series_id: Optional[int]
+    episode_id: Optional[int]
+    series: Optional[SeriesResource]
+    episode: Optional[EpisodeResource]
     languages: Optional[List]
     quality: Optional[QualityModel]
     custom_formats: Optional[List]
     size: Optional[float]
     title: Optional[str]
     sizeleft: Optional[float]
-    timeleft: Optional[TimeSpan]
+    timeleft: Optional[str]
     estimated_completion_time: Optional[datetime]
     status: Optional[str]
     tracked_download_status: Optional[TrackedDownloadStatus]
@@ -56,7 +58,13 @@ class QueueResource(BaseModel):
     download_client: Optional[str]
     indexer: Optional[str]
     output_path: Optional[str]
-    __properties = ["id", "movieId", "movie", "languages", "quality", "customFormats", "size", "title", "sizeleft", "timeleft", "estimatedCompletionTime", "status", "trackedDownloadStatus", "trackedDownloadState", "statusMessages", "errorMessage", "downloadId", "protocol", "downloadClient", "indexer", "outputPath"]
+    __properties = ["id", "seriesId", "episodeId", "series", "episode", "languages", "quality", "customFormats", "size", "title", "sizeleft", "timeleft", "estimatedCompletionTime", "status", "trackedDownloadStatus", "trackedDownloadState", "statusMessages", "errorMessage", "downloadId", "protocol", "downloadClient", "indexer", "outputPath"]
+
+    @validator('timeleft')
+    def timeleft_validate_regular_expression(cls, v):
+        if not re.match(r"\d{2}:\d{2}:\d{2}", v):
+            raise ValueError(r"must validate the regular expression /\d{2}:\d{2}:\d{2}/")
+        return v
 
     class Config:
         allow_population_by_field_name = True
@@ -85,9 +93,12 @@ class QueueResource(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of movie
-        if self.movie:
-            _dict['movie'] = self.movie.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of series
+        if self.series:
+            _dict['series'] = self.series.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of episode
+        if self.episode:
+            _dict['episode'] = self.episode.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in languages (list)
         _items = []
         if self.languages:
@@ -105,9 +116,6 @@ class QueueResource(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['customFormats'] = _items
-        # override the default output from pydantic by calling `to_dict()` of timeleft
-        if self.timeleft:
-            _dict['timeleft'] = self.timeleft.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in status_messages (list)
         _items = []
         if self.status_messages:
@@ -115,9 +123,13 @@ class QueueResource(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['statusMessages'] = _items
-        # set to None if movie_id (nullable) is None
-        if self.movie_id is None:
-            _dict['movieId'] = None
+        # set to None if series_id (nullable) is None
+        if self.series_id is None:
+            _dict['seriesId'] = None
+
+        # set to None if episode_id (nullable) is None
+        if self.episode_id is None:
+            _dict['episodeId'] = None
 
         # set to None if languages (nullable) is None
         if self.languages is None:
@@ -176,15 +188,17 @@ class QueueResource(BaseModel):
 
         _obj = QueueResource.parse_obj({
             "id": obj.get("id"),
-            "movie_id": obj.get("movieId"),
-            "movie": MovieResource.from_dict(obj.get("movie")) if obj.get("movie") is not None else None,
+            "series_id": obj.get("seriesId"),
+            "episode_id": obj.get("episodeId"),
+            "series": SeriesResource.from_dict(obj.get("series")) if obj.get("series") is not None else None,
+            "episode": EpisodeResource.from_dict(obj.get("episode")) if obj.get("episode") is not None else None,
             "languages": [Language.from_dict(_item) for _item in obj.get("languages")] if obj.get("languages") is not None else None,
             "quality": QualityModel.from_dict(obj.get("quality")) if obj.get("quality") is not None else None,
             "custom_formats": [CustomFormatResource.from_dict(_item) for _item in obj.get("customFormats")] if obj.get("customFormats") is not None else None,
             "size": obj.get("size"),
             "title": obj.get("title"),
             "sizeleft": obj.get("sizeleft"),
-            "timeleft": TimeSpan.from_dict(obj.get("timeleft")) if obj.get("timeleft") is not None else None,
+            "timeleft": obj.get("timeleft"),
             "estimated_completion_time": obj.get("estimatedCompletionTime"),
             "status": obj.get("status"),
             "tracked_download_status": obj.get("trackedDownloadStatus"),

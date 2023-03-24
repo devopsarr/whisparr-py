@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**movie_id** | **int** |  | [optional] 
+**series_id** | **int** |  | [optional] 
+**episode_ids** | **List[int]** |  | [optional] 
 **source_title** | **str** |  | [optional] 
 **languages** | [**List[Language]**](Language.md) |  | [optional] 
 **quality** | [**QualityModel**](QualityModel.md) |  | [optional] 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **protocol** | [**DownloadProtocol**](DownloadProtocol.md) |  | [optional] 
 **indexer** | **str** |  | [optional] 
 **message** | **str** |  | [optional] 
-**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
+**series** | [**SeriesResource**](SeriesResource.md) |  | [optional] 
 
 ## Example
 

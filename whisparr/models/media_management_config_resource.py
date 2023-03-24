@@ -19,6 +19,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel
+from whisparr.models.episode_title_required_type import EpisodeTitleRequiredType
 from whisparr.models.file_date_type import FileDateType
 from whisparr.models.proper_download_types import ProperDownloadTypes
 from whisparr.models.rescan_after_refresh_type import RescanAfterRefreshType
@@ -30,26 +31,25 @@ class MediaManagementConfigResource(BaseModel):
     Do not edit the class manually.
     """
     id: Optional[int]
-    auto_unmonitor_previously_downloaded_movies: Optional[bool]
+    auto_unmonitor_previously_downloaded_episodes: Optional[bool]
     recycle_bin: Optional[str]
     recycle_bin_cleanup_days: Optional[int]
     download_propers_and_repacks: Optional[ProperDownloadTypes]
-    create_empty_movie_folders: Optional[bool]
+    create_empty_series_folders: Optional[bool]
     delete_empty_folders: Optional[bool]
     file_date: Optional[FileDateType]
     rescan_after_refresh: Optional[RescanAfterRefreshType]
-    auto_rename_folders: Optional[bool]
-    paths_default_static: Optional[bool]
     set_permissions_linux: Optional[bool]
     chmod_folder: Optional[str]
     chown_group: Optional[str]
+    episode_title_required: Optional[EpisodeTitleRequiredType]
     skip_free_space_check_when_importing: Optional[bool]
     minimum_free_space_when_importing: Optional[int]
     copy_using_hardlinks: Optional[bool]
     import_extra_files: Optional[bool]
     extra_file_extensions: Optional[str]
     enable_media_info: Optional[bool]
-    __properties = ["id", "autoUnmonitorPreviouslyDownloadedMovies", "recycleBin", "recycleBinCleanupDays", "downloadPropersAndRepacks", "createEmptyMovieFolders", "deleteEmptyFolders", "fileDate", "rescanAfterRefresh", "autoRenameFolders", "pathsDefaultStatic", "setPermissionsLinux", "chmodFolder", "chownGroup", "skipFreeSpaceCheckWhenImporting", "minimumFreeSpaceWhenImporting", "copyUsingHardlinks", "importExtraFiles", "extraFileExtensions", "enableMediaInfo"]
+    __properties = ["id", "autoUnmonitorPreviouslyDownloadedEpisodes", "recycleBin", "recycleBinCleanupDays", "downloadPropersAndRepacks", "createEmptySeriesFolders", "deleteEmptyFolders", "fileDate", "rescanAfterRefresh", "setPermissionsLinux", "chmodFolder", "chownGroup", "episodeTitleRequired", "skipFreeSpaceCheckWhenImporting", "minimumFreeSpaceWhenImporting", "copyUsingHardlinks", "importExtraFiles", "extraFileExtensions", "enableMediaInfo"]
 
     class Config:
         allow_population_by_field_name = True
@@ -107,19 +107,18 @@ class MediaManagementConfigResource(BaseModel):
 
         _obj = MediaManagementConfigResource.parse_obj({
             "id": obj.get("id"),
-            "auto_unmonitor_previously_downloaded_movies": obj.get("autoUnmonitorPreviouslyDownloadedMovies"),
+            "auto_unmonitor_previously_downloaded_episodes": obj.get("autoUnmonitorPreviouslyDownloadedEpisodes"),
             "recycle_bin": obj.get("recycleBin"),
             "recycle_bin_cleanup_days": obj.get("recycleBinCleanupDays"),
             "download_propers_and_repacks": obj.get("downloadPropersAndRepacks"),
-            "create_empty_movie_folders": obj.get("createEmptyMovieFolders"),
+            "create_empty_series_folders": obj.get("createEmptySeriesFolders"),
             "delete_empty_folders": obj.get("deleteEmptyFolders"),
             "file_date": obj.get("fileDate"),
             "rescan_after_refresh": obj.get("rescanAfterRefresh"),
-            "auto_rename_folders": obj.get("autoRenameFolders"),
-            "paths_default_static": obj.get("pathsDefaultStatic"),
             "set_permissions_linux": obj.get("setPermissionsLinux"),
             "chmod_folder": obj.get("chmodFolder"),
             "chown_group": obj.get("chownGroup"),
+            "episode_title_required": obj.get("episodeTitleRequired"),
             "skip_free_space_check_when_importing": obj.get("skipFreeSpaceCheckWhenImporting"),
             "minimum_free_space_when_importing": obj.get("minimumFreeSpaceWhenImporting"),
             "copy_using_hardlinks": obj.get("copyUsingHardlinks"),
