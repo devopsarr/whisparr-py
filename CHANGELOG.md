@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/devopsarr/whisparr-py/compare/v0.2.0...v0.2.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* **devopsarr/radarr-py#6:** indentation error on config ([6b6bae0](https://github.com/devopsarr/whisparr-py/commit/6b6bae0d3cd87ed719c8dbecc75e276e5f063eeb))
+
 ## [0.2.0](https://github.com/devopsarr/whisparr-py/compare/v0.1.0...v0.2.0) (2023-03-24)
 
 
