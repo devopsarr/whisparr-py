@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **supports_search** | **bool** |  | [optional] 
 **protocol** | [**DownloadProtocol**](DownloadProtocol.md) |  | [optional] 
 **priority** | **int** |  | [optional] 
-**season_search_maximum_single_episode_age** | **int** |  | [optional] 
 **download_client_id** | **int** |  | [optional] 
 
 ## Example

@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
-**source** | [**QualitySource**](QualitySource.md) |  | [optional] 
+**source** | [**Source**](Source.md) |  | [optional] 
 **resolution** | **int** |  | [optional] 
+**modifier** | [**Modifier**](Modifier.md) |  | [optional] 
 
 ## Example
 

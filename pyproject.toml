@@ -10,7 +10,7 @@ dependencies = [
     "pydantic>=1.10.2",
     "aenum"
 ]
-description = "Whisparr API wrapper"
+description = "Radarr API wrapper"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

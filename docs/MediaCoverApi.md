@@ -1,14 +1,14 @@
 # whisparr.MediaCoverApi
 
-All URIs are relative to *http://localhost:6969*
+All URIs are relative to *http://localhost:7878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_media_coverseries_id_by_filename**](MediaCoverApi.md#get_media_coverseries_id_by_filename) | **GET** /api/v3/mediacover/{seriesId}/{filename} | 
+[**get_media_covermovie_id_by_filename**](MediaCoverApi.md#get_media_covermovie_id_by_filename) | **GET** /api/v3/mediacover/{movieId}/{filename} | 
 
 
-# **get_media_coverseries_id_by_filename**
-> get_media_coverseries_id_by_filename(series_id, filename)
+# **get_media_covermovie_id_by_filename**
+> get_media_covermovie_id_by_filename(movie_id, filename)
 
 
 
@@ -22,10 +22,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -49,13 +49,13 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.MediaCoverApi(api_client)
-    series_id = 56 # int | 
+    movie_id = 56 # int | 
     filename = 'filename_example' # str | 
 
     try:
-        api_instance.get_media_coverseries_id_by_filename(series_id, filename)
+        api_instance.get_media_covermovie_id_by_filename(movie_id, filename)
     except Exception as e:
-        print("Exception when calling MediaCoverApi->get_media_coverseries_id_by_filename: %s\n" % e)
+        print("Exception when calling MediaCoverApi->get_media_covermovie_id_by_filename: %s\n" % e)
 ```
 
 * Api Key Authentication (X-Api-Key):
@@ -66,10 +66,10 @@ import os
 import whisparr
 from whisparr.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:6969
+# Defining the host is optional and defaults to http://localhost:7878
 # See configuration.py for a list of all supported configuration parameters.
 configuration = whisparr.Configuration(
-    host = "http://localhost:6969"
+    host = "http://localhost:7878"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,20 +93,20 @@ configuration.api_key['X-Api-Key'] = os.environ["API_KEY"]
 with whisparr.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = whisparr.MediaCoverApi(api_client)
-    series_id = 56 # int | 
+    movie_id = 56 # int | 
     filename = 'filename_example' # str | 
 
     try:
-        api_instance.get_media_coverseries_id_by_filename(series_id, filename)
+        api_instance.get_media_covermovie_id_by_filename(movie_id, filename)
     except Exception as e:
-        print("Exception when calling MediaCoverApi->get_media_coverseries_id_by_filename: %s\n" % e)
+        print("Exception when calling MediaCoverApi->get_media_covermovie_id_by_filename: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **series_id** | **int**|  | 
+ **movie_id** | **int**|  | 
  **filename** | **str**|  | 
 
 ### Return type

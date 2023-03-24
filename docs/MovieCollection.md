@@ -4,9 +4,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | [optional] 
+**id** | **int** |  | [optional] 
+**title** | **str** |  | [optional] 
+**clean_title** | **str** |  | [optional] 
+**sort_title** | **str** |  | [optional] 
 **tmdb_id** | **int** |  | [optional] 
+**overview** | **str** |  | [optional] 
+**monitored** | **bool** |  | [optional] 
+**quality_profile_id** | **int** |  | [optional] 
+**root_folder_path** | **str** |  | [optional] 
+**search_on_add** | **bool** |  | [optional] 
+**minimum_availability** | [**MovieStatusType**](MovieStatusType.md) |  | [optional] 
+**last_info_sync** | **datetime** |  | [optional] 
 **images** | [**List[MediaCover]**](MediaCover.md) |  | [optional] 
+**added** | **datetime** |  | [optional] 
+**movies** | [**List[MovieMetadata]**](MovieMetadata.md) |  | [optional] 
 
 ## Example
 

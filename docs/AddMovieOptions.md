@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ignore_episodes_with_files** | **bool** |  | [optional] 
 **ignore_episodes_without_files** | **bool** |  | [optional] 
+**monitor** | [**MonitorTypes**](MonitorTypes.md) |  | [optional] 
 **search_for_movie** | **bool** |  | [optional] 
+**add_method** | [**AddMovieMethod**](AddMovieMethod.md) |  | [optional] 
 
 ## Example
 

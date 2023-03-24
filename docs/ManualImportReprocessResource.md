@@ -6,10 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **path** | **str** |  | [optional] 
-**series_id** | **int** |  | [optional] 
-**season_number** | **int** |  | [optional] 
-**episodes** | [**List[EpisodeResource]**](EpisodeResource.md) |  | [optional] 
-**episode_ids** | **List[int]** |  | [optional] 
+**movie_id** | **int** |  | [optional] 
+**movie** | [**MovieResource**](MovieResource.md) |  | [optional] 
 **quality** | [**QualityModel**](QualityModel.md) |  | [optional] 
 **languages** | [**List[Language]**](Language.md) |  | [optional] 
 **release_group** | **str** |  | [optional] 

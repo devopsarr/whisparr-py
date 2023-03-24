@@ -6,9 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **minimum_age** | **int** |  | [optional] 
-**retention** | **int** |  | [optional] 
 **maximum_size** | **int** |  | [optional] 
+**retention** | **int** |  | [optional] 
 **rss_sync_interval** | **int** |  | [optional] 
+**prefer_indexer_flags** | **bool** |  | [optional] 
+**availability_delay** | **int** |  | [optional] 
+**allow_hardcoded_subs** | **bool** |  | [optional] 
+**whitelisted_hardcoded_subs** | **str** |  | [optional] 
 
 ## Example
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **source_type** | [**SourceType**](SourceType.md) |  | [optional] 
-**movie_id** | **int** |  | [optional] 
+**movie_metadata_id** | **int** |  | [optional] 
 **title** | **str** |  | [optional] 
 **clean_title** | **str** |  | [optional] 
 **source_id** | **int** |  | [optional] 

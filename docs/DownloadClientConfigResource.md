@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **download_client_working_folders** | **str** |  | [optional] 
 **enable_completed_download_handling** | **bool** |  | [optional] 
+**check_for_finished_download_interval** | **int** |  | [optional] 
 **auto_redownload_failed** | **bool** |  | [optional] 
 
 ## Example
