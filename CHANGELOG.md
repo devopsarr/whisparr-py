@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/devopsarr/whisparr-py/compare/v0.2.1...v0.2.2) (2023-03-27)
+
+
+### Bug Fixes
+
+* **devopsarr/sonarr-py#6:** remove timespan validator ([9548251](https://github.com/devopsarr/whisparr-py/commit/95482519420631326be4af2f9f245a5c98b7a40b))
+
 ## [0.2.1](https://github.com/devopsarr/whisparr-py/compare/v0.2.0...v0.2.1) (2023-03-24)
 
 
