@@ -267,6 +267,7 @@ whisparr/api/ui_config_api.py
 whisparr/api/update_api.py
 whisparr/api/update_log_file_api.py
 whisparr/api_client.py
+whisparr/api_response.py
 whisparr/configuration.py
 whisparr/exceptions.py
 whisparr/models/__init__.py
