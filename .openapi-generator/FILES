@@ -30,6 +30,7 @@ docs/Command.md
 docs/CommandApi.md
 docs/CommandPriority.md
 docs/CommandResource.md
+docs/CommandResult.md
 docs/CommandStatus.md
 docs/CommandTrigger.md
 docs/CreditApi.md
@@ -291,6 +292,7 @@ whisparr/models/colon_replacement_format.py
 whisparr/models/command.py
 whisparr/models/command_priority.py
 whisparr/models/command_resource.py
+whisparr/models/command_result.py
 whisparr/models/command_status.py
 whisparr/models/command_trigger.py
 whisparr/models/credit_resource.py
