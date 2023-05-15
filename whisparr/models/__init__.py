@@ -35,6 +35,7 @@ from whisparr.models.colon_replacement_format import ColonReplacementFormat
 from whisparr.models.command import Command
 from whisparr.models.command_priority import CommandPriority
 from whisparr.models.command_resource import CommandResource
+from whisparr.models.command_result import CommandResult
 from whisparr.models.command_status import CommandStatus
 from whisparr.models.command_trigger import CommandTrigger
 from whisparr.models.credit_resource import CreditResource
