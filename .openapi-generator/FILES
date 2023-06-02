@@ -47,6 +47,7 @@ docs/DelayProfileResource.md
 docs/DiskSpaceApi.md
 docs/DiskSpaceResource.md
 docs/DownloadClientApi.md
+docs/DownloadClientBulkResource.md
 docs/DownloadClientConfigApi.md
 docs/DownloadClientConfigResource.md
 docs/DownloadClientResource.md
@@ -68,12 +69,14 @@ docs/HostConfigResource.md
 docs/ImportExclusionsApi.md
 docs/ImportExclusionsResource.md
 docs/ImportListApi.md
+docs/ImportListBulkResource.md
 docs/ImportListConfigApi.md
 docs/ImportListConfigResource.md
 docs/ImportListMoviesApi.md
 docs/ImportListResource.md
 docs/ImportListType.md
 docs/IndexerApi.md
+docs/IndexerBulkResource.md
 docs/IndexerConfigApi.md
 docs/IndexerConfigResource.md
 docs/IndexerFlagApi.md
@@ -99,6 +102,7 @@ docs/MediaInfoResource.md
 docs/MediaManagementConfigApi.md
 docs/MediaManagementConfigResource.md
 docs/MetadataApi.md
+docs/MetadataBulkResource.md
 docs/MetadataConfigApi.md
 docs/MetadataConfigResource.md
 docs/MetadataResource.md
@@ -122,6 +126,7 @@ docs/MovieTranslation.md
 docs/NamingConfigApi.md
 docs/NamingConfigResource.md
 docs/NotificationApi.md
+docs/NotificationBulkResource.md
 docs/NotificationResource.md
 docs/PagingResourceFilter.md
 docs/ParseApi.md
@@ -303,6 +308,7 @@ whisparr/models/custom_format_specification_schema.py
 whisparr/models/database_type.py
 whisparr/models/delay_profile_resource.py
 whisparr/models/disk_space_resource.py
+whisparr/models/download_client_bulk_resource.py
 whisparr/models/download_client_config_resource.py
 whisparr/models/download_client_resource.py
 whisparr/models/download_protocol.py
@@ -316,9 +322,11 @@ whisparr/models/history_resource.py
 whisparr/models/history_resource_paging_resource.py
 whisparr/models/host_config_resource.py
 whisparr/models/import_exclusions_resource.py
+whisparr/models/import_list_bulk_resource.py
 whisparr/models/import_list_config_resource.py
 whisparr/models/import_list_resource.py
 whisparr/models/import_list_type.py
+whisparr/models/indexer_bulk_resource.py
 whisparr/models/indexer_config_resource.py
 whisparr/models/indexer_flag_resource.py
 whisparr/models/indexer_resource.py
@@ -333,6 +341,7 @@ whisparr/models/media_cover.py
 whisparr/models/media_cover_types.py
 whisparr/models/media_info_resource.py
 whisparr/models/media_management_config_resource.py
+whisparr/models/metadata_bulk_resource.py
 whisparr/models/metadata_config_resource.py
 whisparr/models/metadata_resource.py
 whisparr/models/modifier.py
@@ -348,6 +357,7 @@ whisparr/models/movie_runtime_format_type.py
 whisparr/models/movie_status_type.py
 whisparr/models/movie_translation.py
 whisparr/models/naming_config_resource.py
+whisparr/models/notification_bulk_resource.py
 whisparr/models/notification_resource.py
 whisparr/models/paging_resource_filter.py
 whisparr/models/parse_resource.py

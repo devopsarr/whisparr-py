@@ -129,6 +129,7 @@ from whisparr.models.custom_format_specification_schema import CustomFormatSpeci
 from whisparr.models.database_type import DatabaseType
 from whisparr.models.delay_profile_resource import DelayProfileResource
 from whisparr.models.disk_space_resource import DiskSpaceResource
+from whisparr.models.download_client_bulk_resource import DownloadClientBulkResource
 from whisparr.models.download_client_config_resource import DownloadClientConfigResource
 from whisparr.models.download_client_resource import DownloadClientResource
 from whisparr.models.download_protocol import DownloadProtocol
@@ -142,9 +143,11 @@ from whisparr.models.history_resource import HistoryResource
 from whisparr.models.history_resource_paging_resource import HistoryResourcePagingResource
 from whisparr.models.host_config_resource import HostConfigResource
 from whisparr.models.import_exclusions_resource import ImportExclusionsResource
+from whisparr.models.import_list_bulk_resource import ImportListBulkResource
 from whisparr.models.import_list_config_resource import ImportListConfigResource
 from whisparr.models.import_list_resource import ImportListResource
 from whisparr.models.import_list_type import ImportListType
+from whisparr.models.indexer_bulk_resource import IndexerBulkResource
 from whisparr.models.indexer_config_resource import IndexerConfigResource
 from whisparr.models.indexer_flag_resource import IndexerFlagResource
 from whisparr.models.indexer_resource import IndexerResource
@@ -159,6 +162,7 @@ from whisparr.models.media_cover import MediaCover
 from whisparr.models.media_cover_types import MediaCoverTypes
 from whisparr.models.media_info_resource import MediaInfoResource
 from whisparr.models.media_management_config_resource import MediaManagementConfigResource
+from whisparr.models.metadata_bulk_resource import MetadataBulkResource
 from whisparr.models.metadata_config_resource import MetadataConfigResource
 from whisparr.models.metadata_resource import MetadataResource
 from whisparr.models.modifier import Modifier
@@ -174,6 +178,7 @@ from whisparr.models.movie_runtime_format_type import MovieRuntimeFormatType
 from whisparr.models.movie_status_type import MovieStatusType
 from whisparr.models.movie_translation import MovieTranslation
 from whisparr.models.naming_config_resource import NamingConfigResource
+from whisparr.models.notification_bulk_resource import NotificationBulkResource
 from whisparr.models.notification_resource import NotificationResource
 from whisparr.models.paging_resource_filter import PagingResourceFilter
 from whisparr.models.parse_resource import ParseResource
