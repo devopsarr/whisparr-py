@@ -102,7 +102,6 @@ docs/MediaInfoResource.md
 docs/MediaManagementConfigApi.md
 docs/MediaManagementConfigResource.md
 docs/MetadataApi.md
-docs/MetadataBulkResource.md
 docs/MetadataConfigApi.md
 docs/MetadataConfigResource.md
 docs/MetadataResource.md
@@ -126,7 +125,6 @@ docs/MovieTranslation.md
 docs/NamingConfigApi.md
 docs/NamingConfigResource.md
 docs/NotificationApi.md
-docs/NotificationBulkResource.md
 docs/NotificationResource.md
 docs/PagingResourceFilter.md
 docs/ParseApi.md
@@ -341,7 +339,6 @@ whisparr/models/media_cover.py
 whisparr/models/media_cover_types.py
 whisparr/models/media_info_resource.py
 whisparr/models/media_management_config_resource.py
-whisparr/models/metadata_bulk_resource.py
 whisparr/models/metadata_config_resource.py
 whisparr/models/metadata_resource.py
 whisparr/models/modifier.py
@@ -357,7 +354,6 @@ whisparr/models/movie_runtime_format_type.py
 whisparr/models/movie_status_type.py
 whisparr/models/movie_translation.py
 whisparr/models/naming_config_resource.py
-whisparr/models/notification_bulk_resource.py
 whisparr/models/notification_resource.py
 whisparr/models/paging_resource_filter.py
 whisparr/models/parse_resource.py
