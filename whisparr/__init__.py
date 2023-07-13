@@ -162,7 +162,6 @@ from whisparr.models.media_cover import MediaCover
 from whisparr.models.media_cover_types import MediaCoverTypes
 from whisparr.models.media_info_resource import MediaInfoResource
 from whisparr.models.media_management_config_resource import MediaManagementConfigResource
-from whisparr.models.metadata_bulk_resource import MetadataBulkResource
 from whisparr.models.metadata_config_resource import MetadataConfigResource
 from whisparr.models.metadata_resource import MetadataResource
 from whisparr.models.modifier import Modifier
@@ -178,7 +177,6 @@ from whisparr.models.movie_runtime_format_type import MovieRuntimeFormatType
 from whisparr.models.movie_status_type import MovieStatusType
 from whisparr.models.movie_translation import MovieTranslation
 from whisparr.models.naming_config_resource import NamingConfigResource
-from whisparr.models.notification_bulk_resource import NotificationBulkResource
 from whisparr.models.notification_resource import NotificationResource
 from whisparr.models.paging_resource_filter import PagingResourceFilter
 from whisparr.models.parse_resource import ParseResource
