@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/devopsarr/whisparr-py/compare/v0.2.2...v0.3.0) (2023-07-21)
+
+
+### Features
+
+* **devopsarr/prowlarr-py#11:** add request timeout to config ([cb0192b](https://github.com/devopsarr/whisparr-py/commit/cb0192b3f2d2a37d234087e9e07bf75d206277ab))
+* pin openapi version and add version management ([fb7b738](https://github.com/devopsarr/whisparr-py/commit/fb7b738a198279f650c3f3423ea8cf1e47b331be))
+
+
+### Bug Fixes
+
+* set pydantic version ([da77da5](https://github.com/devopsarr/whisparr-py/commit/da77da59560b4ae1ce364cebfad549c4377233a0))
+
 ## [0.2.2](https://github.com/devopsarr/whisparr-py/compare/v0.2.1...v0.2.2) (2023-03-27)
 
 
