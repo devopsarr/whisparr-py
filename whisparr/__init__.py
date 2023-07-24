@@ -47,7 +47,6 @@ from whisparr.api.import_list_movies_api import ImportListMoviesApi
 from whisparr.api.indexer_api import IndexerApi
 from whisparr.api.indexer_config_api import IndexerConfigApi
 from whisparr.api.indexer_flag_api import IndexerFlagApi
-from whisparr.api.initialize_js_api import InitializeJsApi
 from whisparr.api.language_api import LanguageApi
 from whisparr.api.localization_api import LocalizationApi
 from whisparr.api.log_api import LogApi
