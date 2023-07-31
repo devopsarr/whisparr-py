@@ -16,6 +16,7 @@
 from whisparr.api.alternative_title_api import AlternativeTitleApi
 from whisparr.api.api_info_api import ApiInfoApi
 from whisparr.api.authentication_api import AuthenticationApi
+from whisparr.api.auto_tagging_api import AutoTaggingApi
 from whisparr.api.backup_api import BackupApi
 from whisparr.api.blocklist_api import BlocklistApi
 from whisparr.api.calendar_api import CalendarApi
