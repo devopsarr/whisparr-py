@@ -22,6 +22,7 @@ __version__ = "0.3.0"
 from whisparr.api.alternative_title_api import AlternativeTitleApi
 from whisparr.api.api_info_api import ApiInfoApi
 from whisparr.api.authentication_api import AuthenticationApi
+from whisparr.api.auto_tagging_api import AutoTaggingApi
 from whisparr.api.backup_api import BackupApi
 from whisparr.api.blocklist_api import BlocklistApi
 from whisparr.api.calendar_api import CalendarApi
@@ -104,6 +105,8 @@ from whisparr.models.alternative_title_resource import AlternativeTitleResource
 from whisparr.models.api_info_resource import ApiInfoResource
 from whisparr.models.apply_tags import ApplyTags
 from whisparr.models.authentication_type import AuthenticationType
+from whisparr.models.auto_tagging_resource import AutoTaggingResource
+from whisparr.models.auto_tagging_specification_schema import AutoTaggingSpecificationSchema
 from whisparr.models.backup_resource import BackupResource
 from whisparr.models.backup_type import BackupType
 from whisparr.models.blocklist_bulk_resource import BlocklistBulkResource

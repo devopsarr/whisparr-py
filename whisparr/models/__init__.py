@@ -22,6 +22,8 @@ from whisparr.models.alternative_title_resource import AlternativeTitleResource
 from whisparr.models.api_info_resource import ApiInfoResource
 from whisparr.models.apply_tags import ApplyTags
 from whisparr.models.authentication_type import AuthenticationType
+from whisparr.models.auto_tagging_resource import AutoTaggingResource
+from whisparr.models.auto_tagging_specification_schema import AutoTaggingSpecificationSchema
 from whisparr.models.backup_resource import BackupResource
 from whisparr.models.backup_type import BackupType
 from whisparr.models.blocklist_bulk_resource import BlocklistBulkResource

@@ -11,6 +11,9 @@ docs/ApiInfoResource.md
 docs/ApplyTags.md
 docs/AuthenticationApi.md
 docs/AuthenticationType.md
+docs/AutoTaggingApi.md
+docs/AutoTaggingResource.md
+docs/AutoTaggingSpecificationSchema.md
 docs/BackupApi.md
 docs/BackupResource.md
 docs/BackupType.md
@@ -204,6 +207,7 @@ whisparr/api/__init__.py
 whisparr/api/alternative_title_api.py
 whisparr/api/api_info_api.py
 whisparr/api/authentication_api.py
+whisparr/api/auto_tagging_api.py
 whisparr/api/backup_api.py
 whisparr/api/blocklist_api.py
 whisparr/api/calendar_api.py
@@ -280,6 +284,8 @@ whisparr/models/alternative_title_resource.py
 whisparr/models/api_info_resource.py
 whisparr/models/apply_tags.py
 whisparr/models/authentication_type.py
+whisparr/models/auto_tagging_resource.py
+whisparr/models/auto_tagging_specification_schema.py
 whisparr/models/backup_resource.py
 whisparr/models/backup_type.py
 whisparr/models/blocklist_bulk_resource.py
