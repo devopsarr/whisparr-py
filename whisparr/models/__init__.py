@@ -21,6 +21,7 @@ from whisparr.models.alternative_title import AlternativeTitle
 from whisparr.models.alternative_title_resource import AlternativeTitleResource
 from whisparr.models.api_info_resource import ApiInfoResource
 from whisparr.models.apply_tags import ApplyTags
+from whisparr.models.authentication_required_type import AuthenticationRequiredType
 from whisparr.models.authentication_type import AuthenticationType
 from whisparr.models.auto_tagging_resource import AutoTaggingResource
 from whisparr.models.auto_tagging_specification_schema import AutoTaggingSpecificationSchema
@@ -101,6 +102,7 @@ from whisparr.models.paging_resource_filter import PagingResourceFilter
 from whisparr.models.parse_resource import ParseResource
 from whisparr.models.parsed_movie_info import ParsedMovieInfo
 from whisparr.models.ping_resource import PingResource
+from whisparr.models.privacy_level import PrivacyLevel
 from whisparr.models.profile_format_item_resource import ProfileFormatItemResource
 from whisparr.models.proper_download_types import ProperDownloadTypes
 from whisparr.models.provider_message import ProviderMessage
@@ -120,11 +122,11 @@ from whisparr.models.rating_type import RatingType
 from whisparr.models.ratings import Ratings
 from whisparr.models.rejection import Rejection
 from whisparr.models.rejection_type import RejectionType
+from whisparr.models.release_profile_resource import ReleaseProfileResource
 from whisparr.models.release_resource import ReleaseResource
 from whisparr.models.remote_path_mapping_resource import RemotePathMappingResource
 from whisparr.models.rename_movie_resource import RenameMovieResource
 from whisparr.models.rescan_after_refresh_type import RescanAfterRefreshType
-from whisparr.models.restriction_resource import RestrictionResource
 from whisparr.models.revision import Revision
 from whisparr.models.root_folder_resource import RootFolderResource
 from whisparr.models.runtime_mode import RuntimeMode

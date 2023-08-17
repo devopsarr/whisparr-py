@@ -68,10 +68,10 @@ from whisparr.api.queue_action_api import QueueActionApi
 from whisparr.api.queue_details_api import QueueDetailsApi
 from whisparr.api.queue_status_api import QueueStatusApi
 from whisparr.api.release_api import ReleaseApi
+from whisparr.api.release_profile_api import ReleaseProfileApi
 from whisparr.api.release_push_api import ReleasePushApi
 from whisparr.api.remote_path_mapping_api import RemotePathMappingApi
 from whisparr.api.rename_movie_api import RenameMovieApi
-from whisparr.api.restriction_api import RestrictionApi
 from whisparr.api.root_folder_api import RootFolderApi
 from whisparr.api.static_resource_api import StaticResourceApi
 from whisparr.api.system_api import SystemApi
