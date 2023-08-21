@@ -73,6 +73,7 @@ from whisparr.models.indexer_flag_resource import IndexerFlagResource
 from whisparr.models.indexer_resource import IndexerResource
 from whisparr.models.language import Language
 from whisparr.models.language_resource import LanguageResource
+from whisparr.models.localization_language_resource import LocalizationLanguageResource
 from whisparr.models.log_file_resource import LogFileResource
 from whisparr.models.log_resource import LogResource
 from whisparr.models.log_resource_paging_resource import LogResourcePagingResource

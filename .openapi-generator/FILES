@@ -90,6 +90,7 @@ docs/Language.md
 docs/LanguageApi.md
 docs/LanguageResource.md
 docs/LocalizationApi.md
+docs/LocalizationLanguageResource.md
 docs/LogApi.md
 docs/LogFileApi.md
 docs/LogFileResource.md
@@ -337,6 +338,7 @@ whisparr/models/indexer_flag_resource.py
 whisparr/models/indexer_resource.py
 whisparr/models/language.py
 whisparr/models/language_resource.py
+whisparr/models/localization_language_resource.py
 whisparr/models/log_file_resource.py
 whisparr/models/log_resource.py
 whisparr/models/log_resource_paging_resource.py
