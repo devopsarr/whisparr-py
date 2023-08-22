@@ -197,6 +197,7 @@ from whisparr.models.quality_definition_resource import QualityDefinitionResourc
 from whisparr.models.quality_model import QualityModel
 from whisparr.models.quality_profile_quality_item_resource import QualityProfileQualityItemResource
 from whisparr.models.quality_profile_resource import QualityProfileResource
+from whisparr.models.quality_source import QualitySource
 from whisparr.models.queue_bulk_resource import QueueBulkResource
 from whisparr.models.queue_resource import QueueResource
 from whisparr.models.queue_resource_paging_resource import QueueResourcePagingResource
@@ -216,7 +217,6 @@ from whisparr.models.root_folder_resource import RootFolderResource
 from whisparr.models.runtime_mode import RuntimeMode
 from whisparr.models.select_option import SelectOption
 from whisparr.models.sort_direction import SortDirection
-from whisparr.models.source import Source
 from whisparr.models.source_type import SourceType
 from whisparr.models.system_resource import SystemResource
 from whisparr.models.tmdb_country_code import TMDbCountryCode
