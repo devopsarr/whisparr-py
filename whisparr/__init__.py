@@ -182,7 +182,6 @@ from whisparr.models.movie_status_type import MovieStatusType
 from whisparr.models.movie_translation import MovieTranslation
 from whisparr.models.naming_config_resource import NamingConfigResource
 from whisparr.models.notification_resource import NotificationResource
-from whisparr.models.paging_resource_filter import PagingResourceFilter
 from whisparr.models.parse_resource import ParseResource
 from whisparr.models.parsed_movie_info import ParsedMovieInfo
 from whisparr.models.ping_resource import PingResource
