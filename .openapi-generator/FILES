@@ -411,4 +411,5 @@ whisparr/models/unmapped_folder.py
 whisparr/models/update_changes.py
 whisparr/models/update_mechanism.py
 whisparr/models/update_resource.py
+whisparr/py.typed
 whisparr/rest.py
