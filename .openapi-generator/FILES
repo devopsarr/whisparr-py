@@ -3,7 +3,6 @@
 README.md
 docs/AddMovieMethod.md
 docs/AddMovieOptions.md
-docs/AlternativeTitle.md
 docs/AlternativeTitleApi.md
 docs/AlternativeTitleResource.md
 docs/ApiInfoApi.md
@@ -112,7 +111,7 @@ docs/MetadataResource.md
 docs/Modifier.md
 docs/MonitorTypes.md
 docs/MovieApi.md
-docs/MovieCollection.md
+docs/MovieCollectionResource.md
 docs/MovieEditorApi.md
 docs/MovieEditorResource.md
 docs/MovieFileApi.md
@@ -121,11 +120,9 @@ docs/MovieFileResource.md
 docs/MovieHistoryEventType.md
 docs/MovieImportApi.md
 docs/MovieLookupApi.md
-docs/MovieMetadata.md
 docs/MovieResource.md
 docs/MovieRuntimeFormatType.md
 docs/MovieStatusType.md
-docs/MovieTranslation.md
 docs/NamingConfigApi.md
 docs/NamingConfigResource.md
 docs/NotificationApi.md
@@ -281,7 +278,6 @@ whisparr/exceptions.py
 whisparr/models/__init__.py
 whisparr/models/add_movie_method.py
 whisparr/models/add_movie_options.py
-whisparr/models/alternative_title.py
 whisparr/models/alternative_title_resource.py
 whisparr/models/api_info_resource.py
 whisparr/models/apply_tags.py
@@ -351,16 +347,14 @@ whisparr/models/metadata_config_resource.py
 whisparr/models/metadata_resource.py
 whisparr/models/modifier.py
 whisparr/models/monitor_types.py
-whisparr/models/movie_collection.py
+whisparr/models/movie_collection_resource.py
 whisparr/models/movie_editor_resource.py
 whisparr/models/movie_file_list_resource.py
 whisparr/models/movie_file_resource.py
 whisparr/models/movie_history_event_type.py
-whisparr/models/movie_metadata.py
 whisparr/models/movie_resource.py
 whisparr/models/movie_runtime_format_type.py
 whisparr/models/movie_status_type.py
-whisparr/models/movie_translation.py
 whisparr/models/naming_config_resource.py
 whisparr/models/notification_resource.py
 whisparr/models/parse_resource.py
