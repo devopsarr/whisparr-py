@@ -100,7 +100,6 @@ from whisparr.exceptions import ApiException
 # import models into sdk package
 from whisparr.models.add_movie_method import AddMovieMethod
 from whisparr.models.add_movie_options import AddMovieOptions
-from whisparr.models.alternative_title import AlternativeTitle
 from whisparr.models.alternative_title_resource import AlternativeTitleResource
 from whisparr.models.api_info_resource import ApiInfoResource
 from whisparr.models.apply_tags import ApplyTags
@@ -170,16 +169,14 @@ from whisparr.models.metadata_config_resource import MetadataConfigResource
 from whisparr.models.metadata_resource import MetadataResource
 from whisparr.models.modifier import Modifier
 from whisparr.models.monitor_types import MonitorTypes
-from whisparr.models.movie_collection import MovieCollection
+from whisparr.models.movie_collection_resource import MovieCollectionResource
 from whisparr.models.movie_editor_resource import MovieEditorResource
 from whisparr.models.movie_file_list_resource import MovieFileListResource
 from whisparr.models.movie_file_resource import MovieFileResource
 from whisparr.models.movie_history_event_type import MovieHistoryEventType
-from whisparr.models.movie_metadata import MovieMetadata
 from whisparr.models.movie_resource import MovieResource
 from whisparr.models.movie_runtime_format_type import MovieRuntimeFormatType
 from whisparr.models.movie_status_type import MovieStatusType
-from whisparr.models.movie_translation import MovieTranslation
 from whisparr.models.naming_config_resource import NamingConfigResource
 from whisparr.models.notification_resource import NotificationResource
 from whisparr.models.parse_resource import ParseResource
