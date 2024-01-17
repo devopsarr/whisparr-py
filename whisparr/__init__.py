@@ -176,6 +176,7 @@ from whisparr.models.movie_file_resource import MovieFileResource
 from whisparr.models.movie_history_event_type import MovieHistoryEventType
 from whisparr.models.movie_resource import MovieResource
 from whisparr.models.movie_runtime_format_type import MovieRuntimeFormatType
+from whisparr.models.movie_statistics_resource import MovieStatisticsResource
 from whisparr.models.movie_status_type import MovieStatusType
 from whisparr.models.naming_config_resource import NamingConfigResource
 from whisparr.models.notification_resource import NotificationResource

@@ -122,6 +122,7 @@ docs/MovieImportApi.md
 docs/MovieLookupApi.md
 docs/MovieResource.md
 docs/MovieRuntimeFormatType.md
+docs/MovieStatisticsResource.md
 docs/MovieStatusType.md
 docs/NamingConfigApi.md
 docs/NamingConfigResource.md
@@ -354,6 +355,7 @@ whisparr/models/movie_file_resource.py
 whisparr/models/movie_history_event_type.py
 whisparr/models/movie_resource.py
 whisparr/models/movie_runtime_format_type.py
+whisparr/models/movie_statistics_resource.py
 whisparr/models/movie_status_type.py
 whisparr/models/naming_config_resource.py
 whisparr/models/notification_resource.py
