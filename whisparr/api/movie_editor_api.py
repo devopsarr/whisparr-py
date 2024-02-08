@@ -18,7 +18,6 @@ from pydantic import validate_arguments, ValidationError
 from typing_extensions import Annotated
 
 from typing import Optional
-
 from whisparr.models.movie_editor_resource import MovieEditorResource
 
 from whisparr.api_client import ApiClient
