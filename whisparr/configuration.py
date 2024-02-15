@@ -399,7 +399,6 @@ conf = whisparr.Configuration(
             }
         return auth
 
-# x-release-please-start-version$
     def to_debug_report(self):
         """Gets the essential information for debugging.
 
@@ -409,10 +408,9 @@ conf = whisparr.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: b08981dee068e1ed23e4f45a0d8fe70ef7bf7703\n"\
-               "SDK Package Version: 0.3.0".\
-               format(env=sys.platform, pyversion=sys.version)
+               "SDK Package Version:  {v}".\
+               format(env=sys.platform, pyversion=sys.version, v="0.3.0") # x-release-please-version
 
-# x-release-please-end$
     def get_host_settings(self):
         """Gets an array of host settings
 
