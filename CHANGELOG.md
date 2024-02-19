@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.0](https://github.com/devopsarr/whisparr-py/compare/v0.3.0...v1.0.0) (2024-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **devopsarr/prowlarr-py#39:** update sdk generator to use pydantic 2.x
+
+### Features
+
+* **devopsarr/prowlarr-py#39:** update sdk generator to use pydantic 2.x ([bad01c0](https://github.com/devopsarr/whisparr-py/commit/bad01c0566c91648ab269116b65946df8d61879e))
+* inject api version into readme ([4ed74b5](https://github.com/devopsarr/whisparr-py/commit/4ed74b5671066d7df81109abca345c6921a7d35d))
+
+
+### Bug Fixes
+
+* **python:** wrong release versioning on configuration.py ([93c4bbb](https://github.com/devopsarr/whisparr-py/commit/93c4bbb6d1789b388267ffc65740bc67e7dc6a27))
+* release please commented lines ([ab2f862](https://github.com/devopsarr/whisparr-py/commit/ab2f86214ef6603d2bc8b38570339956d32ebe6e))
+* remove middle elements from method name ([29b0adc](https://github.com/devopsarr/whisparr-py/commit/29b0adc1753d0722eeb7800745e70df62710e7db))
+
 ## [0.3.0](https://github.com/devopsarr/whisparr-py/compare/v0.2.2...v0.3.0) (2023-07-21)
 
 
