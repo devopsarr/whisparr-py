@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/devopsarr/whisparr-py/compare/v1.0.0...v1.0.1) (2024-02-21)
+
+
+### Bug Fixes
+
+* map Field to ContractField to avoid pydantic issue ([0caf78d](https://github.com/devopsarr/whisparr-py/commit/0caf78dc929f4aa1b637db981ec1110b0ab2fe0b))
+
 ## [1.0.0](https://github.com/devopsarr/whisparr-py/compare/v1.0.0...v1.0.0) (2024-02-20)
 
 
