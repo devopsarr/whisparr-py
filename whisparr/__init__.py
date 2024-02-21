@@ -123,6 +123,7 @@ from whisparr.models.command_resource import CommandResource
 from whisparr.models.command_result import CommandResult
 from whisparr.models.command_status import CommandStatus
 from whisparr.models.command_trigger import CommandTrigger
+from whisparr.models.contract_field import ContractField
 from whisparr.models.credit_resource import CreditResource
 from whisparr.models.credit_type import CreditType
 from whisparr.models.custom_filter_resource import CustomFilterResource
@@ -137,7 +138,6 @@ from whisparr.models.download_client_resource import DownloadClientResource
 from whisparr.models.download_protocol import DownloadProtocol
 from whisparr.models.extra_file_resource import ExtraFileResource
 from whisparr.models.extra_file_type import ExtraFileType
-from whisparr.models.field import Field
 from whisparr.models.file_date_type import FileDateType
 from whisparr.models.health_check_result import HealthCheckResult
 from whisparr.models.health_resource import HealthResource
