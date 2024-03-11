@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, Optional
 from whisparr.models.colon_replacement_format import ColonReplacementFormat
 from typing import Optional, Set
@@ -39,11 +39,11 @@ class NamingConfigResource(BaseModel):
     number_style: Optional[StrictStr] = Field(default=None, alias="numberStyle")
     __properties: ClassVar[List[str]] = ["id", "renameMovies", "replaceIllegalCharacters", "colonReplacementFormat", "standardMovieFormat", "movieFolderFormat", "includeQuality", "replaceSpaces", "separator", "numberStyle"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
