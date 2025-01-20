@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/devopsarr/whisparr-py/compare/v1.0.1...v1.1.0) (2025-01-20)
+
+
+### Features
+
+* remove broken root api path ([a9d269f](https://github.com/devopsarr/whisparr-py/commit/a9d269f401389c9743b887c96071d2abba04f489))
+
+
+### Bug Fixes
+
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.10.0 ([17001c9](https://github.com/devopsarr/whisparr-py/commit/17001c9fc94f5281f8cabc307a84fddee4103721))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.11.0 ([b7d9d5b](https://github.com/devopsarr/whisparr-py/commit/b7d9d5ba46f612e07bf09d0f7d85a7b975add471))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.9.0 ([8492a80](https://github.com/devopsarr/whisparr-py/commit/8492a8000726a2d3b724130fee3eb5a3e7b9504f))
+
 ## [1.0.1](https://github.com/devopsarr/whisparr-py/compare/v1.0.0...v1.0.1) (2024-02-21)
 
 
