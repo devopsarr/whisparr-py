@@ -535,7 +535,7 @@ conf = whisparr.Configuration(
                "Python Version: {pyversion}\n"\
                "Version of the API: b08981dee068e1ed23e4f45a0d8fe70ef7bf7703\n"\
                "SDK Package Version:  {v}".\
-               format(env=sys.platform, pyversion=sys.version, v="1.1.0") # x-release-please-version
+               format(env=sys.platform, pyversion=sys.version, v="0.0.1") # x-release-please-version
 
     def get_host_settings(self) -> List[HostSetting]:
         """Gets an array of host settings
