@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_calendar_by_id**
 > MovieResource get_calendar_by_id(id)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -93,8 +91,6 @@ Name | Type | Description  | Notes
 
 # **list_calendar**
 > List[MovieResource] list_calendar(start=start, end=end, unmonitored=unmonitored, tags=tags)
-
-
 
 ### Example
 

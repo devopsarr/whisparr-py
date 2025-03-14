@@ -15,8 +15,6 @@ Method | HTTP request | Description
 # **create_custom_format**
 > CustomFormatResource create_custom_format(custom_format_resource=custom_format_resource)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -98,8 +96,6 @@ Name | Type | Description  | Notes
 # **delete_custom_format**
 > delete_custom_format(id)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -177,8 +173,6 @@ void (empty response body)
 
 # **get_custom_format_by_id**
 > CustomFormatResource get_custom_format_by_id(id)
-
-
 
 ### Example
 
@@ -261,8 +255,6 @@ Name | Type | Description  | Notes
 # **get_custom_format_schema**
 > get_custom_format_schema()
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -336,8 +328,6 @@ void (empty response body)
 
 # **list_custom_format**
 > List[CustomFormatResource] list_custom_format()
-
-
 
 ### Example
 
@@ -415,8 +405,6 @@ This endpoint does not need any parameter.
 
 # **update_custom_format**
 > CustomFormatResource update_custom_format(id, custom_format_resource=custom_format_resource)
-
-
 
 ### Example
 

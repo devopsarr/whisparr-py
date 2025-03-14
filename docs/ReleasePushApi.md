@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **create_release_push**
 > List[ReleaseResource] create_release_push(release_resource=release_resource)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -93,8 +91,6 @@ Name | Type | Description  | Notes
 
 # **get_release_push_by_id**
 > ReleaseResource get_release_push_by_id(id)
-
-
 
 ### Example
 

@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **get_movie_lookup**
 > get_movie_lookup(term=term)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -92,8 +90,6 @@ void (empty response body)
 
 # **get_movie_lookup_by_id**
 > MovieResource get_movie_lookup_by_id(id)
-
-
 
 ### Example
 
@@ -176,8 +172,6 @@ Name | Type | Description  | Notes
 # **get_movie_lookup_imdb**
 > get_movie_lookup_imdb(imdb_id=imdb_id)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -255,8 +249,6 @@ void (empty response body)
 
 # **get_movie_lookup_tmdb**
 > get_movie_lookup_tmdb(tmdb_id=tmdb_id)
-
-
 
 ### Example
 

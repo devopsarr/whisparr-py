@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **create_movie_import**
 > create_movie_import(movie_resource=movie_resource)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -91,8 +89,6 @@ void (empty response body)
 
 # **get_movie_import_by_id**
 > MovieResource get_movie_import_by_id(id)
-
-
 
 ### Example
 

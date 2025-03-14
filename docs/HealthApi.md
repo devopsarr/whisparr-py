@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_health_by_id**
 > HealthResource get_health_by_id(id)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -93,8 +91,6 @@ Name | Type | Description  | Notes
 
 # **list_health**
 > List[HealthResource] list_health()
-
-
 
 ### Example
 

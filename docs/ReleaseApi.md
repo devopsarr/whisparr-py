@@ -12,8 +12,6 @@ Method | HTTP request | Description
 # **create_release**
 > create_release(release_resource=release_resource)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -92,8 +90,6 @@ void (empty response body)
 
 # **get_release_by_id**
 > ReleaseResource get_release_by_id(id)
-
-
 
 ### Example
 
@@ -175,8 +171,6 @@ Name | Type | Description  | Notes
 
 # **list_release**
 > List[ReleaseResource] list_release(movie_id=movie_id)
-
-
 
 ### Example
 
