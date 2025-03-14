@@ -13,8 +13,6 @@ Method | HTTP request | Description
 # **delete_queue**
 > delete_queue(id, remove_from_client=remove_from_client, blocklist=blocklist, skip_redownload=skip_redownload, change_category=change_category)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -100,8 +98,6 @@ void (empty response body)
 
 # **delete_queue_bulk**
 > delete_queue_bulk(remove_from_client=remove_from_client, blocklist=blocklist, skip_redownload=skip_redownload, change_category=change_category, queue_bulk_resource=queue_bulk_resource)
-
-
 
 ### Example
 
@@ -189,8 +185,6 @@ void (empty response body)
 
 # **get_queue**
 > QueueResourcePagingResource get_queue(page=page, page_size=page_size, sort_key=sort_key, sort_direction=sort_direction, include_unknown_movie_items=include_unknown_movie_items, include_movie=include_movie, movie_ids=movie_ids, protocol=protocol, languages=languages, quality=quality)
-
-
 
 ### Example
 
@@ -292,8 +286,6 @@ Name | Type | Description  | Notes
 
 # **get_queue_by_id**
 > QueueResource get_queue_by_id(id)
-
-
 
 ### Example
 

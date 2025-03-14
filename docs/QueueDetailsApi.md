@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **get_queue_details_by_id**
 > QueueResource get_queue_details_by_id(id)
 
-
-
 ### Example
 
 * Api Key Authentication (apikey):
@@ -93,8 +91,6 @@ Name | Type | Description  | Notes
 
 # **list_queue_details**
 > List[QueueResource] list_queue_details(movie_id=movie_id, include_movie=include_movie)
-
-
 
 ### Example
 
